@@ -1,0 +1,10 @@
+# Raw source asset library (photos, brochures, reference letters) — kept
+# locally for the team to draw on, never pushed to GitHub. Processed,
+# web-ready copies of everything actually used by the site live in
+# assets/images/ and assets/downloads/, which ARE tracked.
+Media/
+
+# OS/editor cruft
+.DS_Store
+Thumbs.db
+desktop.ini

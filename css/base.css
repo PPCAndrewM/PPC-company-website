@@ -1,0 +1,162 @@
+/* ==========================================================================
+   BASE — reset, typography, layout primitives, utility classes
+   ========================================================================== */
+
+*, *::before, *::after{ box-sizing: border-box; }
+html{ scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior: auto; }
+}
+body{
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink-900);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.6;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+img{ max-width: 100%; display: block; }
+svg{ display: block; }
+.icon{ width: 20px; height: 20px; flex-shrink: 0; display: inline-block; vertical-align: middle; }
+a{ color: inherit; text-decoration: none; }
+ul, ol{ margin: 0; padding: 0; list-style: none; }
+button{ font: inherit; color: inherit; background: none; border: none; cursor: pointer; }
+input, textarea, select{ font: inherit; color: inherit; }
+::selection{ background: var(--blue-500); color: #fff; }
+
+/* ---- Focus visibility (WCAG 2.4.7) ---- */
+a:focus-visible, button:focus-visible, input:focus-visible,
+textarea:focus-visible, select:focus-visible, summary:focus-visible,
+[tabindex]:focus-visible{
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* ---- Skip link ---- */
+.skip-link{
+  position: absolute; left: -999px; top: 0; z-index: 200;
+  background: var(--ink-900); color: #fff;
+  padding: .8em 1.2em; font-family: var(--font-body); font-weight: 600;
+}
+.skip-link:focus{ left: var(--sp-4); top: var(--sp-4); }
+
+/* ---- Visually hidden but accessible ---- */
+.sr-only{
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}
+
+/* ---- Typography scale ---- */
+h1, h2, h3, h4, h5{
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.06;
+  margin: 0;
+  letter-spacing: .002em;
+  text-wrap: balance;
+  color: var(--ink-900);
+}
+h1{ font-size: clamp(2.4rem, 3.4vw + 1rem, 4.2rem); }
+h2{ font-size: clamp(1.9rem, 1.8vw + 1rem, 2.9rem); }
+h3{ font-size: clamp(1.35rem, .8vw + 1rem, 1.7rem); }
+h4{ font-size: 1.05rem; text-transform: uppercase; letter-spacing: .06em; font-weight: 600; }
+p{ margin: 0 0 1em; max-width: 68ch; }
+.lede{ font-size: 1.2rem; color: var(--ink-500); max-width: 58ch; }
+strong{ font-weight: 600; color: var(--ink-900); }
+.mono{ font-family: var(--font-mono); }
+
+/* ---- Layout primitives ---- */
+.container{ max-width: var(--container); margin-inline: auto; padding-inline: var(--sp-6); }
+@media (max-width: 640px){ .container{ padding-inline: var(--sp-4); } }
+.container-narrow{ max-width: var(--container-narrow); margin-inline: auto; padding-inline: var(--sp-6); }
+
+.section{ padding-block: var(--sp-11); }
+.section-tight{ padding-block: var(--sp-9); }
+@media (max-width: 780px){
+  .section{ padding-block: var(--sp-9); }
+  .section-tight{ padding-block: var(--sp-7); }
+}
+.section--sunk{ background: var(--paper-sunk); }
+.section--dark{ background: var(--blue-900); color: #fff; }
+.section--dark h2, .section--dark h3, .section--dark h4{ color: #fff; }
+.section--dark .lede{ color: var(--blue-100); }
+
+/* Anchor targets: keep headings clear of the sticky header + sub-nav */
+main [id]{ scroll-margin-top: calc(var(--header-h) + 64px); }
+
+.eyebrow{
+  display: inline-flex; align-items: center; gap: .5em;
+  font-family: var(--font-mono); font-size: .78rem; font-weight: 600;
+  letter-spacing: .12em; text-transform: uppercase; color: var(--blue-700);
+  margin-bottom: var(--sp-3);
+}
+.section--dark .eyebrow{ color: var(--blue-200); }
+.eyebrow::before{ content:""; width: 18px; height: 2px; background: var(--orange-500); display: inline-block; }
+
+.section-head{ max-width: 62ch; margin-bottom: var(--sp-8); }
+.section-head.center{ margin-inline: auto; text-align: center; }
+
+.grid{ display: grid; gap: var(--sp-6); }
+.flow > * + *{ margin-top: var(--sp-4); }
+
+/* ---- Buttons ---- */
+.btn{
+  display: inline-flex; align-items: center; justify-content: center; gap: .55em;
+  font-family: var(--font-body); font-weight: 600; font-size: .96rem;
+  padding: .85em 1.6em; border-radius: var(--radius-sm);
+  border: 1.5px solid transparent; white-space: nowrap;
+  transition: background var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease),
+              border-color var(--dur-fast) var(--ease), transform var(--dur-fast) var(--ease);
+}
+.btn svg{ width: 18px; height: 18px; flex-shrink: 0; }
+.btn:active{ transform: translateY(1px); }
+.btn-primary{ background: var(--orange-500); color: #fff; }
+.btn-primary:hover{ background: var(--orange-600); }
+.btn-secondary{ background: transparent; color: var(--blue-900); border-color: var(--line-strong); }
+.btn-secondary:hover{ border-color: var(--blue-700); background: var(--blue-50); }
+.section--dark .btn-secondary{ color: #fff; border-color: rgba(255,255,255,.35); }
+.section--dark .btn-secondary:hover{ background: rgba(255,255,255,.08); border-color: #fff; }
+.btn-ghost{ background: transparent; color: var(--blue-700); padding-inline: .2em; }
+.btn-ghost:hover{ color: var(--orange-600); }
+.btn-block{ width: 100%; }
+.btn-sm{ padding: .6em 1.1em; font-size: .86rem; }
+
+/* ---- Badges / pills ---- */
+.badge{
+  display: inline-flex; align-items: center; gap: .4em;
+  font-family: var(--font-mono); font-size: .75rem; font-weight: 600;
+  padding: .3em .7em; border-radius: 20px; letter-spacing: .02em;
+  background: var(--paper-sunk); color: var(--ink-500);
+}
+.badge svg{ width: 13px; height: 13px; }
+.badge--iso{ background: var(--success-tint); color: var(--success); }
+.badge--new{ background: var(--orange-50); color: var(--orange-600); }
+
+/* ---- Utility ---- */
+.text-center{ text-align: center; }
+.visually-balance{ text-wrap: balance; }
+.stack-sm > * + *{ margin-top: var(--sp-2); }
+.stack-md > * + *{ margin-top: var(--sp-4); }
+.stack-lg > * + *{ margin-top: var(--sp-6); }
+
+/* ---- Scroll reveal (progressive enhancement; content visible without JS) ---- */
+.reveal{ opacity: 1; transform: none; }
+.js-ready .reveal{
+  opacity: 0; transform: translateY(18px);
+  transition: opacity var(--dur-slow) var(--ease), transform var(--dur-slow) var(--ease);
+}
+.js-ready .reveal.is-visible{ opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce){
+  .js-ready .reveal{ opacity: 1; transform: none; transition: none; }
+}
+
+/* ---- Responsive image helper ---- */
+.ratio{ position: relative; overflow: hidden; border-radius: var(--radius-md); background: var(--paper-sunk); }
+.ratio img{ width: 100%; height: 100%; object-fit: cover; }
+.ratio-16-9{ aspect-ratio: 16/9; }
+.ratio-4-3{ aspect-ratio: 4/3; }
+.ratio-1-1{ aspect-ratio: 1/1; }
+.ratio-3-2{ aspect-ratio: 3/2; }
