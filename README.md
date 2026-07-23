@@ -47,9 +47,10 @@ This is a mock-up, not a production build. Left for a real build phase:
   linking to the most relevant product page, rather than eight separate
   full article pages — a proportionate choice for a mock-up, but a real
   knowledge centre would give each its own page and URL.
-- **The Lavina Wines testimonial is still a placeholder.** The letter is a
-  `.doc` file I can't read with my current tools — send the text (or
-  confirm MUTO alone is fine) and I'll add it properly.
+- **The Lavina Wines letter still isn't included.** It's a `.doc` file I
+  can't read with my current tools. The homepage now carries five other
+  real testimonials, so this is no longer blocking anything — send the
+  text over if you'd like it added as a sixth.
 - **No hreflang/translated pages.** The audit flagged the old site's
   untranslated locale stubs as a real problem; this mock-up deliberately
   ships one authoritative English site rather than repeating that mistake.
@@ -170,7 +171,7 @@ processed (resized + compressed for web) into `assets/images/`. Highlights:
 
 | Used for | Source |
 |---|---|
-| Logo (header/footer) | `Media/PPC Logo/PPC Philton Large Logo.png` |
+| Logo (header/footer) | `Media/PPC Logo/PPC-Philton-Large-Logo trans - clear background.png` — genuinely transparent PNG; replaced the original opaque-background version, which was the cause of a white box appearing behind the logo on the dark footer |
 | Favicon | `Media/PPC Logo/PPC logo.png` |
 | Hero image | `Media/Flexitanks photographs/Flexitank-rail-testing.jpg` |
 | ISO 9001 badge | `Media/SGS ISO9001 Logo/SGS ISO 9001 UKAS_TCL_HR.jpg` — genuine certificate |
@@ -179,16 +180,44 @@ processed (resized + compressed for web) into `assets/images/`. Highlights:
 | Containment &amp; industrial packaging galleries | `Media/Industrial packaging photographs/*`, `Media/Product CGIs/15-27*.png` |
 | Bladder tanks &amp; agriculture gallery | `Media/Bladder tanks and agriculture applications CGIs/*` |
 | Brochures (EN/CN/ES) | `Media/Brochures/*` |
-| Testimonial | `Media/reference letters/Reference-MUTO.pdf` — real, signed reference letter, quoted with attribution per your confirmation |
+| Testimonials (5, homepage) | `Media/Testimonials/Letters/*.pdf` (MUTO — Korea, Artlant PTA — Portugal, Kukla Spedition — Germany) and `Media/Testimonials/Marketing Graphics/*.png` (Keymac Packaging, Shetland Islands Council) — all real, named, quoted with attribution |
 
 Full mapping for every image is in `_process_images.py` (Phase 1) and
 `_process_images_phase2.py` (Phase 2) — each line is one source → destination
 pair, so you can trace any image on the site back to its original file.
 
+**`Media/` was reorganised** from the original flat `reference letters/`
+folder into `Media/Testimonials/Letters/` (signed PDF/Word reference
+letters) and `Media/Testimonials/Marketing Graphics/` (existing promotional
+graphics with embedded customer quotes) — clearer now that there are five
+sources instead of one. Files were renamed for clarity (e.g. `Artlant.pdf`
+→ `Artlant-PTA-Portugal.pdf`); nothing was deleted except two Windows
+`Thumbs.db` cache files, which contain no content.
+
 No invented company facts, certifications or client claims appear anywhere.
 Where real data wasn't available (bladder tank capacity specs, sustainability
 metrics), the copy says so explicitly rather than inventing numbers — see
 `pages/sustainability.html` and `pages/product-bladder-tanks.html`.
+
+## Fixes applied after first review
+
+- **Button contrast**: `.btn-secondary` (e.g. "Explore our products",
+  "Download brochures") was rendering dark navy text on a dark background
+  in the hero and any CTA band, invisible until hover. Fixed in
+  `css/base.css` — both contexts now get white text and a light border by
+  default, matching the existing `.section--dark` treatment.
+- **Footer logo white box**: the original `PPC Philton Large Logo.png` had
+  an opaque white background baked in (not transparent), so the CSS trick
+  used to recolour it white for the dark footer (`filter: brightness(0)
+  invert(1)`) turned the *entire rectangular canvas* white, not just the
+  logo strokes. Replaced with the genuinely transparent logo file you
+  supplied — the filter now only whitens the visible logo pixels.
+- **Testimonials expanded from 1 to 5**: found four more real, signed/
+  attributed customer references in the reorganised `Media/Testimonials/`
+  folder (Artlant PTA — Portugal, Robert Kukla GmbH — Germany, Keymac
+  Packaging Systems — UK, Shetland Islands Council — UK) and added them
+  all to the homepage, replacing the placeholder second-testimonial card
+  entirely.
 
 ## Accessibility
 
@@ -246,8 +275,8 @@ metrics), the copy says so explicitly rather than inventing numbers — see
 
 1. **Review all 21 pages** and flag anything that reads wrong before this
    goes further — copy, imagery choices, or structure.
-2. **Send the Lavina Wines letter text** (or confirm MUTO alone is fine)
-   so the second testimonial slot on the homepage can be finalised.
+2. **Send the Lavina Wines letter text**, if you'd like it added as a
+   sixth testimonial — optional, not blocking.
 3. **Decide on a real backend** for the contact/enquiry forms — currently
    client-side only with no submission destination.
 4. When ready to go live: swap embedded base64 fonts for linked files,

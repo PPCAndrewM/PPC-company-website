@@ -119,6 +119,12 @@ main [id]{ scroll-margin-top: calc(var(--header-h) + 64px); }
 .btn-secondary:hover{ border-color: var(--blue-700); background: var(--blue-50); }
 .section--dark .btn-secondary{ color: #fff; border-color: rgba(255,255,255,.35); }
 .section--dark .btn-secondary:hover{ background: rgba(255,255,255,.08); border-color: #fff; }
+
+/* Hero and CTA-band always sit on a dark photo/navy background, even
+   though neither carries the .section--dark class, so they need the
+   same light-text treatment applied directly. */
+.hero .btn-secondary, .cta-band .btn-secondary{ color: #fff; border-color: rgba(255,255,255,.4); }
+.hero .btn-secondary:hover, .cta-band .btn-secondary:hover{ background: rgba(255,255,255,.12); border-color: #fff; }
 .btn-ghost{ background: transparent; color: var(--blue-700); padding-inline: .2em; }
 .btn-ghost:hover{ color: var(--orange-600); }
 .btn-block{ width: 100%; }
