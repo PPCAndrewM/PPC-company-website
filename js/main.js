@@ -14,9 +14,11 @@
   var prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   /* ------------------------------------------------------------------ */
-  /* Navigation (runs once the header/footer partials are injected)      */
+  /* Navigation — partials.js runs (and injects the header/footer) as a  */
+  /* preceding, blocking <script> tag, so this always executes after     */
+  /* those elements already exist; no need to wait for an event.         */
   /* ------------------------------------------------------------------ */
-  document.addEventListener("partials:ready", function(){
+  (function(){
     var header = document.querySelector(".site-header");
     var toggle = document.querySelector(".nav-toggle");
     var mobileNav = document.getElementById("mobile-nav");
@@ -86,7 +88,7 @@
       window.addEventListener("scroll", onScroll, { passive: true });
       onScroll();
     }
-  });
+  })();
 
   /* ------------------------------------------------------------------ */
   /* Scroll reveal                                                       */
