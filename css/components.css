@@ -441,6 +441,51 @@ a.card:hover .card-cta svg{ transform: translateX(4px); }
 .form-success svg{ width: 20px; height: 20px; flex-shrink: 0; }
 
 /* ---------------------------------------------------------------------- */
+/* INTERACTIVE REGIONAL MAP (Contact page)                                */
+/* ---------------------------------------------------------------------- */
+.map-wrap{
+  display: grid; grid-template-columns: 1fr 300px; gap: var(--sp-6);
+  background: var(--paper-raised); border: 1px solid var(--line); border-radius: var(--radius-md);
+  padding: var(--sp-5); align-items: stretch;
+}
+@media (max-width: 860px){ .map-wrap{ grid-template-columns: 1fr; } }
+.map-canvas{ position: relative; width: 100%; aspect-ratio: 494.7 / 265.7; }
+.map-canvas img{ width: 100%; height: 100%; object-fit: contain; }
+.map-pin{
+  position: absolute; transform: translate(-50%, -50%);
+  width: 16px; height: 16px; display: grid; place-items: center;
+}
+.map-pin .pin-dot{
+  width: 10px; height: 10px; border-radius: 50%; background: var(--orange-500);
+  border: 2px solid #fff; box-shadow: 0 1px 3px rgba(14,20,23,.35);
+  transition: transform var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease);
+}
+.map-pin::after{
+  content: ""; position: absolute; inset: -6px; border-radius: 50%;
+  background: rgba(245,81,24,.25); opacity: 0; transform: scale(.6);
+  transition: opacity var(--dur-fast) var(--ease), transform var(--dur-fast) var(--ease);
+}
+.map-pin:hover::after, .map-pin:focus-visible::after{ opacity: 1; transform: scale(1); }
+.map-pin:hover .pin-dot, .map-pin:focus-visible .pin-dot{ transform: scale(1.3); }
+.map-pin.is-active .pin-dot{ background: var(--blue-700); transform: scale(1.3); }
+.map-pin.is-active::after{ opacity: 1; transform: scale(1); background: rgba(10,102,153,.22); }
+@media (prefers-reduced-motion: reduce){
+  .map-pin .pin-dot, .map-pin::after{ transition: none; }
+}
+
+.map-info-panel{
+  background: var(--paper-sunk); border-radius: var(--radius-sm); padding: var(--sp-5);
+  display: flex; flex-direction: column; justify-content: center; gap: var(--sp-2);
+}
+.map-info-panel .placeholder{ color: var(--ink-300); font-size: .9rem; }
+.map-info-panel h4{ margin: 0; text-transform: none; letter-spacing: 0; font-size: 1.05rem; font-family: var(--font-display); font-weight: 700; color: var(--ink-900); }
+.map-info-panel .type{ font-family: var(--font-mono); font-size: .72rem; text-transform: uppercase; letter-spacing: .05em; color: var(--blue-700); }
+.map-info-panel .contact-name{ font-size: .9rem; font-weight: 600; margin-top: var(--sp-2); }
+.map-info-panel a{ display: flex; align-items: center; gap: .5em; font-size: .87rem; color: var(--ink-700); word-break: break-all; }
+.map-info-panel a:hover{ color: var(--blue-700); }
+.map-info-panel a svg{ width: 15px; height: 15px; color: var(--blue-700); flex-shrink: 0; }
+
+/* ---------------------------------------------------------------------- */
 /* BACK TO TOP                                                            */
 /* ---------------------------------------------------------------------- */
 .back-to-top{

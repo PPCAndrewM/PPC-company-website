@@ -179,7 +179,7 @@
     return '' +
     '<div class="container footer-top">' +
       '<div class="footer-brand">' +
-        '<img src="' + BASE + 'assets/images/logo/ppc-philton-logo.png" alt="PPC Philton" width="150" height="29" style="filter:brightness(0) invert(1)">' +
+        '<img src="' + BASE + 'assets/images/logo/ppc-philton-logo.png" alt="PPC Philton" width="150" height="29">' +
         '<p>Manufacturer of dry bulk container liners, flexitanks and bespoke industrial packaging. Trading since 1969, manufacturing in the UK, China and India.</p>' +
         '<div class="footer-social">' +
           '<a href="#" aria-label="PPC Philton on LinkedIn">' + icon('linkedin') + '</a>' +

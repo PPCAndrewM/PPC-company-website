@@ -47,10 +47,6 @@ This is a mock-up, not a production build. Left for a real build phase:
   linking to the most relevant product page, rather than eight separate
   full article pages — a proportionate choice for a mock-up, but a real
   knowledge centre would give each its own page and URL.
-- **The Lavina Wines letter still isn't included.** It's a `.doc` file I
-  can't read with my current tools. The homepage now carries five other
-  real testimonials, so this is no longer blocking anything — send the
-  text over if you'd like it added as a sixth.
 - **No hreflang/translated pages.** The audit flagged the old site's
   untranslated locale stubs as a real problem; this mock-up deliberately
   ships one authoritative English site rather than repeating that mistake.
@@ -181,6 +177,7 @@ processed (resized + compressed for web) into `assets/images/`. Highlights:
 | Bladder tanks &amp; agriculture gallery | `Media/Bladder tanks and agriculture applications CGIs/*` |
 | Brochures (EN/CN/ES) | `Media/Brochures/*` |
 | Testimonials (5, homepage) | `Media/Testimonials/Letters/*.pdf` (MUTO — Korea, Artlant PTA — Portugal, Kukla Spedition — Germany) and `Media/Testimonials/Marketing Graphics/*.png` (Keymac Packaging, Shetland Islands Council) — all real, named, quoted with attribution |
+| Contact page world map | `assets/images/map/world-map.svg` — not from `Media/`; this is Wikimedia Commons' "Simple world map.svg" (CC0/public domain, no attribution required), recoloured to match the site palette |
 
 Full mapping for every image is in `_process_images.py` (Phase 1) and
 `_process_images_phase2.py` (Phase 2) — each line is one source → destination
@@ -218,6 +215,32 @@ metrics), the copy says so explicitly rather than inventing numbers — see
   Packaging Systems — UK, Shetland Islands Council — UK) and added them
   all to the homepage, replacing the placeholder second-testimonial card
   entirely.
+- **Testimonials redesigned as compact snippet cards**: the first version
+  used narrow, tall columns with full multi-sentence quotes, which was
+  hard to read. Cards are now wide horizontal rectangles — avatar, a
+  single trimmed sentence, and attribution — with a wider grid minimum so
+  fewer, larger cards appear per row.
+- **Footer logo colour**: after fixing the white-box issue, the logo was
+  still being forced fully white via a CSS filter. Removed the filter
+  entirely — the logo now renders in its real brand colours (blue
+  "Philton" wordmark, blue rectangles with the white "PPC" cut-out)
+  against the dark footer, using the transparent PNG supplied.
+- **Lavina Wines references removed** from this README and the codebase
+  per your request. The original `.doc` file is untouched on disk in
+  `Media/Testimonials/Letters/` — only mentions of it were removed, not
+  the file itself.
+- **Interactive regional map added to the Contact page** (`pages/contact.html`):
+  a CC0/public-domain world map (Wikimedia Commons, recoloured to match
+  the site) with 19 clickable pins, one per sales/manufacturing region.
+  Clicking a pin shows contact name, phone and email in a side panel.
+  Pin positions are approximate (converted from each location's real
+  latitude/longitude) — nudge the `left`/`top` percentages in
+  `pages/contact.html` if any look visually off once you've viewed it.
+  The full text tables remain underneath, now corrected and completed
+  with real email addresses for every European contact (previously only
+  phone numbers were shown for UK/Europe, France, Spain, Scandinavia &
+  Baltics, Turkey and Ukraine) — re-verified directly against the live
+  site's own contact-page data rather than the earlier homepage summary.
 
 ## Accessibility
 
@@ -275,10 +298,8 @@ metrics), the copy says so explicitly rather than inventing numbers — see
 
 1. **Review all 21 pages** and flag anything that reads wrong before this
    goes further — copy, imagery choices, or structure.
-2. **Send the Lavina Wines letter text**, if you'd like it added as a
-   sixth testimonial — optional, not blocking.
-3. **Decide on a real backend** for the contact/enquiry forms — currently
+2. **Decide on a real backend** for the contact/enquiry forms — currently
    client-side only with no submission destination.
-4. When ready to go live: swap embedded base64 fonts for linked files,
+3. When ready to go live: swap embedded base64 fonts for linked files,
    add a caching/CDN layer, and set up server-side URL rewrites for clean
    URLs — all flagged inline above and in code comments.

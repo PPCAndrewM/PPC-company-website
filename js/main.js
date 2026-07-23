@@ -207,6 +207,35 @@
   }
 
   /* ------------------------------------------------------------------ */
+  /* Interactive regional map (Contact page)                              */
+  /* ------------------------------------------------------------------ */
+  var mapPins = document.querySelectorAll(".map-pin");
+  var mapPanel = document.getElementById("map-info-panel");
+  if (mapPins.length && mapPanel) {
+    var icon = function(name){ return '<svg><use href="#icon-' + name + '"></use></svg>'; };
+    mapPins.forEach(function(pin){
+      pin.addEventListener("click", function(){
+        mapPins.forEach(function(p){ p.classList.remove("is-active"); p.setAttribute("aria-pressed", "false"); });
+        pin.classList.add("is-active");
+        pin.setAttribute("aria-pressed", "true");
+
+        var name = pin.getAttribute("data-name") || "";
+        var type = pin.getAttribute("data-type") || "";
+        var contact = pin.getAttribute("data-contact") || "";
+        var phone = pin.getAttribute("data-phone") || "";
+        var phoneHref = pin.getAttribute("data-phone-href") || "";
+        var email = pin.getAttribute("data-email") || "";
+
+        var html = '<span class="type">' + type + '</span><h4>' + name + '</h4>';
+        if (contact) html += '<span class="contact-name">' + contact + '</span>';
+        if (phone) html += '<a href="tel:' + phoneHref + '">' + icon("phone") + phone + '</a>';
+        if (email) html += '<a href="mailto:' + email + '">' + icon("mail") + email + '</a>';
+        mapPanel.innerHTML = html;
+      });
+    });
+  }
+
+  /* ------------------------------------------------------------------ */
   /* Lightweight form handling (no backend in this mock-up)               */
   /* ------------------------------------------------------------------ */
   document.querySelectorAll(".js-form").forEach(function(form){
