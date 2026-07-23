@@ -213,5 +213,12 @@
   var footerEl = document.getElementById("site-footer");
   if(footerEl){ footerEl.innerHTML = footerHTML(); }
 
-  document.dispatchEvent(new CustomEvent("partials:ready"));
+  // Deferred one tick: partials.js and main.js are plain, synchronous
+  // <script> tags, so main.js's "partials:ready" listener is only
+  // registered *after* this script finishes running. Dispatching
+  // immediately would fire the event before that listener exists and
+  // lose it — deferring lets main.js's script tag finish executing first.
+  setTimeout(function(){
+    document.dispatchEvent(new CustomEvent("partials:ready"));
+  }, 0);
 })();
