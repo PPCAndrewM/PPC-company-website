@@ -1,8 +1,10 @@
 # PPC Philton — 2026 website mock-up
 
 A from-scratch redesign mock-up of ppcphilton.com, built to run entirely locally
-with no build step and no server. This is **Phase 1** of a phased build — see 
-[Status](#status--whats-built-vs-planned) below for exactly what's live today.
+with no build step and no server. **Phase 1 and Phase 2 are both complete** —
+all 21 pages in the planned sitemap are built and cross-linked. See
+[Status](#status) below for what that covers and what's intentionally left
+for a future pass.
 
 ## How to run it
 
@@ -12,28 +14,78 @@ and font is a plain file on disk; fonts are embedded as base64 so they render
 correctly even under the `file://` protocol, which blocks ordinary font/CSS
 network requests in some browsers.
 
-Pages currently built and clickable:
+## Status
 
-- `index.html` — homepage
-- `pages/product-flexitanks.html` — full product page template
-- `pages/industry-chemical.html` — full industry page template
+All 21 pages are built, cross-linked and validated (every `src`/`href`
+resolves, no broken internal links, balanced HTML tags, valid JS):
 
-Every other link in the navigation (About, other four products, other four
-industries, Manufacturing, Quality & Certifications, Sustainability, News,
-FAQs, Resources, Contact) is wired into the real navigation structure but
-**does not have a page yet** — clicking it will 404 in the browser. This is
-intentional for Phase 1: the plan was to agree the design system and page
-templates on a representative sample before generating the remaining ~15
-pages against them. See [Next steps](#next-steps) below.
+**Home** — `index.html`
+
+**Products** — `pages/products.html` (hub) plus all five product pages:
+dry bulk container liners, flexitanks, containment bags, industrial
+packaging, bladder tanks & agriculture
+
+**Industries** — `pages/industries.html` (hub) plus all five industry
+pages: chemical manufacturing, food & beverage, logistics & freight,
+agriculture & commodities, pharmaceutical & healthcare
+
+**Company** — about, manufacturing, quality & certifications, sustainability
+
+**Resources** — resources/downloads, FAQs, knowledge centre / news
+
+**Contact** — full enquiry form + regional contact directory
+
+### What's intentionally not done
+
+This is a mock-up, not a production build. Left for a real build phase:
+
+- **No working backend.** Every form shows a client-side "submitted"
+  message (see `js/main.js`) but sends nothing anywhere — there's nothing
+  to send it to. Wire this to your real form handler/CRM before launch.
+- **No individual news article pages.** `pages/news.html` lists eight real
+  article titles/dates/excerpts (reused from the live site) as cards
+  linking to the most relevant product page, rather than eight separate
+  full article pages — a proportionate choice for a mock-up, but a real
+  knowledge centre would give each its own page and URL.
+- **The Lavina Wines testimonial is still a placeholder.** The letter is a
+  `.doc` file I can't read with my current tools — send the text (or
+  confirm MUTO alone is fine) and I'll add it properly.
+- **No hreflang/translated pages.** The audit flagged the old site's
+  untranslated locale stubs as a real problem; this mock-up deliberately
+  ships one authoritative English site rather than repeating that mistake.
+  If genuine multi-market translation is wanted, that's a distinct project.
+- **Regional contact table** on the Contact page reproduces real data from
+  the live site, grouped by region instead of one long table — but it's
+  still a static list. An interactive map (mentioned as an idea in the
+  audit) would need a mapping library and is out of scope for a
+  no-build-step static mock-up.
 
 ## Project structure
 
 ```
-company-website/
+PPC-company-website/
 ├── index.html                          Homepage
 ├── pages/
-│   ├── product-flexitanks.html         Full product page template
-│   └── industry-chemical.html          Full industry page template
+│   ├── products.html                   Products hub + "which product do I need" guide
+│   ├── product-dry-bulk-container-liners.html
+│   ├── product-flexitanks.html
+│   ├── product-containment-bags.html
+│   ├── product-industrial-packaging.html
+│   ├── product-bladder-tanks.html
+│   ├── industries.html                 Industries hub
+│   ├── industry-chemical.html
+│   ├── industry-food-beverage.html
+│   ├── industry-logistics.html
+│   ├── industry-agriculture.html
+│   ├── industry-pharmaceutical.html
+│   ├── about.html
+│   ├── manufacturing.html
+│   ├── quality-certifications.html
+│   ├── sustainability.html
+│   ├── resources.html                  Downloads hub
+│   ├── faqs.html
+│   ├── news.html                       Knowledge centre
+│   └── contact.html
 ├── css/
 │   ├── tokens.css                      Colour, type, spacing variables + embedded fonts
 │   ├── base.css                        Reset, typography, layout primitives, utilities
@@ -44,16 +96,17 @@ company-website/
 ├── assets/
 │   ├── images/                         Processed, web-sized images (see Asset provenance)
 │   ├── icons/sprite.svg                Human-readable source of the icon set
-│   └── downloads/                      Brochure PDF(s)
+│   └── downloads/                      Brochure PDFs (EN/CN/ES)
 ├── Media/                              Your original supplied assets — untouched, kept as source
-├── _process_images.py                  One-off script used to resize Media/ → assets/images/
+│                                        (excluded from git — see .gitignore)
+├── _process_images.py                  One-off script: Phase 1 Media/ → assets/images/
+├── _process_images_phase2.py           One-off script: Phase 2 additional assets
 └── README.md                           This file
 ```
 
 ## Design decisions
 
-A few choices were made deliberately and are worth understanding before this
-goes further — flagged here rather than buried in code comments.
+A few choices were made deliberately and are worth understanding.
 
 **Colour palette.** Kept and refined your live site's actual brand colours
 (confirmed from the production CSS): signal blue `#00A1E6` and safety orange
@@ -79,58 +132,63 @@ same-origin policy under `file://` — there's no server to grant an origin,
 so the request silently fails in Chrome/Edge. `js/partials.js` solves this
 by injecting the header/footer markup from an inline script instead of
 fetching it, which works identically under `file://` and `http(s)://`.
-The trade-off: header/nav/footer won't appear with JavaScript disabled, and
-"View Source" won't show them. Given the real constraint (must run with no
-server), this was judged the better trade-off — but if this becomes a real
-site, switch to server-side includes, a static-site generator, or a
-templating build step (11ty, Astro, or even plain PHP includes) instead.
+Every one of the 21 pages sets `data-base` (`""` at root, `"../"` inside
+`/pages/`) and `data-page` (for nav active-state highlighting) on `<body>` —
+`partials.js` reads both to build correct relative links and highlight the
+right nav item automatically. The trade-off: header/nav/footer won't appear
+with JavaScript disabled, and "View Source" won't show them. Given the real
+constraint (must run with no server), this was judged the better trade-off —
+but if this becomes a real site, switch to server-side includes, a
+static-site generator, or a templating build step instead.
 
 **Same reasoning applies to the icon sprite** — `assets/icons/sprite.svg` is
 kept as a human-readable source of the icon designs, but the actual icons
 render from a copy of the same markup inlined by `partials.js`, because
 `<use href="external.svg#id">` is also blocked cross-file under `file://`
-in Chrome. **If you add or change an icon, update both files** — this is
-the one piece of manual duplication in the codebase and it's called out
-in comments in both places.
+in Chrome. **If you add or change an icon, update both files.**
 
 **No dark mode.** This is a B2B product-marketing site, not an application —
 neither of the two inspiration sites (labaronne-citaf.com, trustflexitanks.com)
-nor any category leader researched for the audit ships a dark theme. Adding
-one would be effort spent on a feature with no evidence of buyer demand in
-this category.
+nor any category leader researched for the audit ships a dark theme.
 
 **Clean URLs.** Genuinely clean URLs (no `.html`) require server-side
-rewrite rules, which don't exist when opening files directly. Every internal
-link uses `.html` for that reason. Once deployed to a real server, adding
-rewrite rules (or exporting through a static-site generator) will give you
-clean URLs without changing any page content.
+rewrite rules, which don't exist when opening files directly. Once deployed
+to a real server, adding rewrite rules (or exporting through a static-site
+generator) will give you clean URLs without changing any page content.
+
+**"Bladder Tanks & Agriculture" is marked as new throughout.** This product
+line only exists on the live site as one June 2026 news post, so every
+page referencing it (product page, homepage card, agriculture industry
+page) is honest about it being newly launched rather than presenting it as
+an established, fully-specified range — see `pages/product-bladder-tanks.html`
+in particular.
 
 ## Asset provenance
 
 Real assets from your supplied `Media/` folder were used wherever suitable,
-processed (resized + compressed for web) into `assets/images/`:
+processed (resized + compressed for web) into `assets/images/`. Highlights:
 
 | Used for | Source |
 |---|---|
 | Logo (header/footer) | `Media/PPC Logo/PPC Philton Large Logo.png` |
 | Favicon | `Media/PPC Logo/PPC logo.png` |
 | Hero image | `Media/Flexitanks photographs/Flexitank-rail-testing.jpg` |
-| ISO 9001 badge | `Media/SGS ISO9001 Logo/SGS ISO 9001 UKAS_TCL_HR.jpg` — genuine certificate, safe to use as-is |
+| ISO 9001 badge | `Media/SGS ISO9001 Logo/SGS ISO 9001 UKAS_TCL_HR.jpg` — genuine certificate |
 | Manufacturing photos | `Media/About us photographs/*` (production line, testing platform, 1974 facility photo) |
-| Product category cards + flexitank gallery | `Media/Product CGIs/*`, `Media/Flexitanks photographs/*` |
-| Chemical industry photo | `Media/Emergency response photographs/crosspump-with-manufacturer-name-removed.png` |
-| Flexitank brochure download | `Media/Brochures/Brochure FLEXITANKS 12 07 23.pdf` |
+| Dry bulk liner sub-types (8) | `Media/Product CGIs/1-8*.png` |
+| Containment &amp; industrial packaging galleries | `Media/Industrial packaging photographs/*`, `Media/Product CGIs/15-27*.png` |
+| Bladder tanks &amp; agriculture gallery | `Media/Bladder tanks and agriculture applications CGIs/*` |
+| Brochures (EN/CN/ES) | `Media/Brochures/*` |
 | Testimonial | `Media/reference letters/Reference-MUTO.pdf` — real, signed reference letter, quoted with attribution per your confirmation |
 
-**Not yet used:** the "Bladder tanks and agriculture" CGI set (product page
-not yet built — Phase 2), the CN/ES brochure variants, and the Lavina Wines
-reference letter (`.doc` format — I can't read binary Word docs with my
-current tools; if you paste or convert its text I can add it as the second
-testimonial, currently a clearly-labelled placeholder on the homepage).
+Full mapping for every image is in `_process_images.py` (Phase 1) and
+`_process_images_phase2.py` (Phase 2) — each line is one source → destination
+pair, so you can trace any image on the site back to its original file.
 
-No invented company facts, certifications or client claims appear anywhere —
-every stat on these three pages traces back to either the audit's source
-material (live site content, ISO history) or a genuine document in `Media/`.
+No invented company facts, certifications or client claims appear anywhere.
+Where real data wasn't available (bladder tank capacity specs, sustainability
+metrics), the copy says so explicitly rather than inventing numbers — see
+`pages/sustainability.html` and `pages/product-bladder-tanks.html`.
 
 ## Accessibility
 
@@ -139,62 +197,59 @@ material (live site content, ISO history) or a genuine document in `Media/`.
 - Skip-to-content link on every page
 - Visible focus states (`:focus-visible`) on all interactive elements,
   3px outline meeting WCAG 2.4.7
-- All images carry descriptive `alt` text; decorative icons are
-  `aria-hidden`
+- All images carry descriptive `alt` text; decorative icons are `aria-hidden`
 - Accordion (FAQs) and mega-menus use `aria-expanded`/`aria-controls`;
-  mobile nav and lightbox are keyboard-operable and trap focus sensibly
-- Form fields have associated `<label>`s; the demo form validates via
-  native HTML5 `required`/`type` attributes
+  mobile nav and lightbox are keyboard-operable
+- Form fields have associated `<label>`s; forms validate via native HTML5
+  `required`/`type` attributes
 - Respects `prefers-reduced-motion` — scroll-reveal and smooth-scroll
   animations disable themselves automatically
-- Brand blue/orange/ink values were chosen for contrast against both white
-  and the dark navy sections — worth a final automated contrast audit
-  (e.g. axe DevTools) once real content stabilises, particularly the
-  orange-on-white CTA button
+- Worth a final automated contrast audit (e.g. axe DevTools) once real
+  content stabilises, particularly the orange-on-white CTA button
 
 ## SEO
 
-- Unique, keyword-relevant `<title>` and meta description per page
+- Unique, keyword-relevant `<title>` and meta description on all 21 pages
 - Open Graph + Twitter Card tags on every page
-- Real JSON-LD: `Organization`/`WebSite` on the homepage, `Product` +
-  `FAQPage` + `BreadcrumbList` on the flexitank product page — this
-  directly fixes the "no Product schema anywhere" finding from the site
-  audit. Extend this pattern to every product/page in Phase 2.
-- One `<h1>` per page (fixes the audit's 4-H1-homepage finding), ordered
-  H2/H3 hierarchy throughout
-- Internal linking between products ↔ industries ↔ related products
+- Real JSON-LD throughout: `Organization`/`WebSite` on the homepage,
+  `Product` + `FAQPage` + `BreadcrumbList` on every product page,
+  `BreadcrumbList` on every industry/company/resource page, `AboutPage`
+  on the About page — this directly fixes the "no Product schema
+  anywhere" finding from the site audit
+- One `<h1>` per page, ordered H2/H3 hierarchy throughout
+- Dense internal linking: products ↔ industries ↔ related products ↔
+  FAQs ↔ resources
 
 ## What this fixes from the site audit
 
-Direct references to findings in the earlier audit report:
-
-- Homepage now leads with one clear value proposition and a single H1,
-  not a 4-slide carousel with no coherent message
+- Homepage leads with one clear value proposition and a single H1, not a
+  4-slide carousel with no coherent message
 - Real ISO/certification proof (badge image + JSON-LD) instead of
-  text-only claims
+  text-only claims, with a dedicated Quality & Certifications page
 - A genuine, attributed testimonial instead of no social proof at all
-- FAQ content, a spec table, and a gallery on the product page — none
+- FAQ content, spec tables, and galleries on every product page — none
   existed on the live site
-- Clean, single canonical URL structure and Product schema, addressing
-  the duplicate-URL and missing-schema findings
+- Clean URL structure and Product schema, addressing the duplicate-URL
+  and missing-schema findings
 - The old "Global Reach" table (which dominated every page) is now a
-  compact, linked strip — full detail belongs on its own Contact page
-  (Phase 2)
+  compact, linked strip on every page, with full regional detail moved to
+  its own Contact page, grouped by region instead of one long table
+- Industry-led navigation (Chemical, Food & Beverage, Logistics,
+  Agriculture, Pharmaceutical) added alongside product-led navigation —
+  the audit's top structural recommendation
+- A genuine FAQ page and per-product FAQ sections, previously absent
+  sitewide
+- Orphaned assets fixed: brochures are now linked from the products that
+  describe them and from a dedicated Resources page
 
 ## Next steps
 
-Before generating the remaining ~15 pages, please sign off on:
-
-1. **This design system and these three pages** — colours, type, spacing,
-   component patterns (cards, nav, buttons, accordion, gallery) will be
-   reused as-is across every remaining page.
-2. **The information architecture** in the nav (Products / Industries /
-   Company / Resources / Contact) — every remaining page is already
-   linked from the header and footer using this structure.
-3. **The Lavina Wines testimonial** — send the letter text (or confirm
-   using MUTO alone is fine) so it can be added properly.
-
-Once confirmed, Phase 2 builds out: About, Manufacturing, Quality &
-Certifications, Sustainability, the remaining four product pages, the
-remaining four industry pages, Resources, FAQs, News/Knowledge Centre and
-Contact — all against the templates approved here.
+1. **Review all 21 pages** and flag anything that reads wrong before this
+   goes further — copy, imagery choices, or structure.
+2. **Send the Lavina Wines letter text** (or confirm MUTO alone is fine)
+   so the second testimonial slot on the homepage can be finalised.
+3. **Decide on a real backend** for the contact/enquiry forms — currently
+   client-side only with no submission destination.
+4. When ready to go live: swap embedded base64 fonts for linked files,
+   add a caching/CDN layer, and set up server-side URL rewrites for clean
+   URLs — all flagged inline above and in code comments.
