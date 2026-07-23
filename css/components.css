@@ -294,8 +294,13 @@ a.card:hover, .card.is-hoverable:hover{
 @media (max-width: 560px){ .footer-top{ grid-template-columns: 1fr; } }
 .footer-brand img{ height: 30px; margin-bottom: var(--sp-4); }
 .footer-brand p{ font-size: .88rem; color: var(--ink-300); max-width: 32ch; }
-.footer-social{ margin-top: var(--sp-5); }
-.footer-social a{ font-size: .88rem; font-weight: 600; color: #fff; text-decoration: underline; text-underline-offset: .2em; }
+.footer-social{ display: flex; gap: var(--sp-3); margin-top: var(--sp-5); }
+.footer-social a{
+  width: 36px; height: 36px; border: 1px solid rgba(255,255,255,.18); border-radius: 50%;
+  display: grid; place-items: center; transition: background var(--dur-fast) var(--ease);
+}
+.footer-social a:hover{ background: rgba(255,255,255,.1); }
+.footer-social svg{ width: 16px; height: 16px; color: #fff; }
 .footer-col h3{
   font-family: var(--font-mono); font-size: .78rem; text-transform: uppercase; letter-spacing: .08em;
   color: #fff; font-weight: 600; margin-bottom: var(--sp-4);
