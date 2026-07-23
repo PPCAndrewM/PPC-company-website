@@ -87,9 +87,9 @@
     <div class="container">
       <nav class="breadcrumbs" aria-label="Breadcrumb">
         <a href="../index.html">Home</a>
-        <svg><use href="#icon-chevron-right"></use></svg>
+        <span class="crumb-sep" aria-hidden="true">/</span>
         <a href="products.html">Products</a>
-        <svg><use href="#icon-chevron-right"></use></svg>
+        <span class="crumb-sep" aria-hidden="true">/</span>
         <span aria-current="page">Flexitanks for Liquids</span>
       </nav>
       <p class="eyebrow" style="color:var(--blue-100)">Bulk liquid packaging</p>
@@ -151,10 +151,10 @@
         <h2 id="applications-heading">Where flexitanks replace drums, IBCs and dedicated tankers.</h2>
       </div>
       <div class="grid reveal" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr))">
-        <div class="feature-card card"><div class="icon"><svg><use href="#icon-flask"></use></svg></div><h3>Chemical &amp; industrial liquids</h3><p>Non-hazardous industrial chemicals, glycerine and similar products &mdash; always confirm compatibility with our technical team first.</p></div>
-        <div class="feature-card card"><div class="icon"><svg><use href="#icon-droplet"></use></svg></div><h3>Food &amp; beverage ingredients</h3><p>Wine concentrate, edible oils and other food-grade liquids using ISO 22000-certified materials.</p></div>
-        <div class="feature-card card"><div class="icon"><svg><use href="#icon-leaf"></use></svg></div><h3>Latex &amp; natural rubber</h3><p>Referenced directly in our MUTO partnership: over 5,000 units supplied for bulk latex transport since 2018.</p></div>
-        <div class="feature-card card"><div class="icon"><svg><use href="#icon-truck"></use></svg></div><h3>Road, rail &amp; reefer transport</h3><p>Trailer and reefer-specific formats with anti-surge chambers for multi-modal transport.</p></div>
+        <div class="feature-card card"><h3>Chemical &amp; industrial liquids</h3><p>Non-hazardous industrial chemicals, glycerine and similar products &mdash; always confirm compatibility with our technical team first.</p></div>
+        <div class="feature-card card"><h3>Food &amp; beverage ingredients</h3><p>Wine concentrate, edible oils and other food-grade liquids using ISO 22000-certified materials.</p></div>
+        <div class="feature-card card"><h3>Latex &amp; natural rubber</h3><p>Referenced directly in our MUTO partnership: over 5,000 units supplied for bulk latex transport since 2018.</p></div>
+        <div class="feature-card card"><h3>Road, rail &amp; reefer transport</h3><p>Trailer and reefer-specific formats with anti-surge chambers for multi-modal transport.</p></div>
       </div>
     </div>
   </section>
@@ -167,10 +167,10 @@
         <h2 id="benefits-heading">Why shippers move from drums and IBCs to flexitanks.</h2>
       </div>
       <div class="grid reveal" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr))">
-        <div class="feature-card card"><div class="icon"><svg><use href="#icon-package"></use></svg></div><h3>Higher payload per container</h3><p>A single flexitank typically carries more usable litres per container than an equivalent load of drums, with no empty-drum return freight.</p></div>
-        <div class="feature-card card"><div class="icon"><svg><use href="#icon-check-circle"></use></svg></div><h3>Single-use, no cleaning cost</h3><p>No tank-cleaning between cargoes and no cross-contamination risk between shipments.</p></div>
-        <div class="feature-card card"><div class="icon"><svg><use href="#icon-shield-check"></use></svg></div><h3>Pressure-tested before dispatch</h3><p>100% of end welds are pressure-tested to 1 bar &mdash; not sample-tested &mdash; before a unit leaves our facility.</p></div>
-        <div class="feature-card card"><div class="icon"><svg><use href="#icon-clock"></use></svg></div><h3>Faster load and discharge</h3><p>Top or bottom valve configurations are matched to your terminal equipment for faster turnaround than drum decanting.</p></div>
+        <div class="feature-card card"><h3>Higher payload per container</h3><p>A single flexitank typically carries more usable litres per container than an equivalent load of drums, with no empty-drum return freight.</p></div>
+        <div class="feature-card card"><h3>Single-use, no cleaning cost</h3><p>No tank-cleaning between cargoes and no cross-contamination risk between shipments.</p></div>
+        <div class="feature-card card"><h3>Pressure-tested before dispatch</h3><p>100% of end welds are pressure-tested to 1 bar &mdash; not sample-tested &mdash; before a unit leaves our facility.</p></div>
+        <div class="feature-card card"><h3>Faster load and discharge</h3><p>Top or bottom valve configurations are matched to your terminal equipment for faster turnaround than drum decanting.</p></div>
       </div>
     </div>
   </section>
@@ -239,9 +239,9 @@
   <!-- Lightbox (shared markup, populated by js/main.js) -->
   <div class="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer" aria-hidden="true">
     <button class="lightbox-close" aria-label="Close image viewer"><svg><use href="#icon-close"></use></svg></button>
-    <button class="lightbox-nav lightbox-prev" aria-label="Previous image"><svg style="transform:rotate(180deg)"><use href="#icon-arrow-right"></use></svg></button>
+    <button class="lightbox-nav lightbox-prev" aria-label="Previous image"></button>
     <img src="" alt="">
-    <button class="lightbox-nav lightbox-next" aria-label="Next image"><svg><use href="#icon-arrow-right"></use></svg></button>
+    <button class="lightbox-nav lightbox-next" aria-label="Next image"></button>
     <p class="lightbox-caption"></p>
   </div>
 
@@ -254,12 +254,10 @@
       </div>
       <div class="grid reveal" style="grid-template-columns:repeat(auto-fit,minmax(320px,1fr))">
         <div class="card download-card">
-          <div class="icon"><svg><use href="#icon-file-text"></use></svg></div>
           <div><h3>Flexitanks brochure (EN)</h3><p>PDF &middot; product range overview</p></div>
-          <a class="btn btn-secondary btn-sm" href="../assets/downloads/ppc-philton-flexitanks-brochure.pdf" download>Download <svg class="icon"><use href="#icon-download"></use></svg></a>
+          <a class="btn btn-secondary btn-sm" href="../assets/downloads/ppc-philton-flexitanks-brochure.pdf" download>Download</a>
         </div>
         <div class="card download-card">
-          <div class="icon"><svg><use href="#icon-file-text"></use></svg></div>
           <div><h3>Full specification sheet</h3><p>PDF &middot; capacities, materials, valve options</p></div>
           <a class="btn btn-secondary btn-sm" href="resources.html">Request access</a>
         </div>
@@ -321,15 +319,15 @@
       <div class="grid reveal" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr))">
         <a class="card product-card" href="product-dry-bulk-container-liners.html">
           <div class="ratio ratio-4-3"><img src="../assets/images/products/dry-bulk-container-liners.png" alt="Dry bulk container liner" loading="lazy" width="900" height="506"></div>
-          <div class="product-card-body"><h3 style="font-size:1.1rem">Dry Bulk Container Liners</h3><span class="card-cta">View <svg class="icon"><use href="#icon-arrow-right"></use></svg></span></div>
+          <div class="product-card-body"><h3 style="font-size:1.1rem">Dry Bulk Container Liners</h3><span class="card-cta">View</span></div>
         </a>
         <a class="card product-card" href="product-bladder-tanks.html">
           <div class="ratio ratio-4-3"><img src="../assets/images/products/bladder-tanks.png" alt="Bladder tank" loading="lazy" width="900" height="600"></div>
-          <div class="product-card-body"><h3 style="font-size:1.1rem">Bladder Tanks &amp; Agriculture</h3><span class="card-cta">View <svg class="icon"><use href="#icon-arrow-right"></use></svg></span></div>
+          <div class="product-card-body"><h3 style="font-size:1.1rem">Bladder Tanks &amp; Agriculture</h3><span class="card-cta">View</span></div>
         </a>
         <a class="card product-card" href="product-containment-bags.html">
           <div class="ratio ratio-4-3"><img src="../assets/images/products/containment-bags.jpg" alt="Containment bag" loading="lazy" width="900" height="600"></div>
-          <div class="product-card-body"><h3 style="font-size:1.1rem">Containment Bags</h3><span class="card-cta">View <svg class="icon"><use href="#icon-arrow-right"></use></svg></span></div>
+          <div class="product-card-body"><h3 style="font-size:1.1rem">Containment Bags</h3><span class="card-cta">View</span></div>
         </a>
       </div>
     </div>
@@ -355,7 +353,6 @@
 <footer class="site-footer" id="site-footer" role="contentinfo"></footer>
 
 <button class="back-to-top" aria-label="Back to top">
-  <svg style="transform:rotate(-90deg)"><use href="#icon-arrow-right"></use></svg>
 </button>
 
 <script src="../js/partials.js"></script>

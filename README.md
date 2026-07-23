@@ -170,7 +170,7 @@ processed (resized + compressed for web) into `assets/images/`. Highlights:
 | Logo (header/footer) | `Media/PPC Logo/PPC-Philton-Large-Logo trans - clear background.png` — genuinely transparent PNG; replaced the original opaque-background version, which was the cause of a white box appearing behind the logo on the dark footer |
 | Favicon | `Media/PPC Logo/PPC logo.png` |
 | Hero image | `Media/Flexitanks photographs/Flexitank-rail-testing.jpg` |
-| ISO 9001 badge | `Media/SGS ISO9001 Logo/SGS ISO 9001 UKAS_TCL_HR.jpg` — genuine certificate |
+| ISO 9001 badge | `Media/SGS ISO9001 Logo/SGS ISO 9001 UKAS_TCL_HR.jpg` — genuine certificate; processed copy kept in `assets/images/certifications/` but no longer displayed on the page (removed as part of the sitewide icon/graphic clean-up, see "Fixes applied after first review") |
 | Manufacturing photos | `Media/About us photographs/*` (production line, testing platform, 1974 facility photo) |
 | Dry bulk liner sub-types (8) | `Media/Product CGIs/1-8*.png` |
 | Containment &amp; industrial packaging galleries | `Media/Industrial packaging photographs/*`, `Media/Product CGIs/15-27*.png` |
@@ -241,6 +241,21 @@ metrics), the copy says so explicitly rather than inventing numbers — see
   phone numbers were shown for UK/Europe, France, Spain, Scandinavia &
   Baltics, Turkey and Ukraine) — re-verified directly against the live
   site's own contact-page data rather than the earlier homepage summary.
+- **Decorative icons removed sitewide, deployed live to Render**: per
+  feedback, every purely decorative icon/graphic was stripped — mega-menu
+  category icons, feature-card and download-card icons, checklist bullets,
+  card "view →" arrows, trust-strip icons, testimonial quote marks, the
+  footer LinkedIn glyph, and the ISO 9001 badge image + colour icons on the
+  homepage and Quality &amp; Certifications page (the certification text
+  itself stays, just without the graphics). Breadcrumb chevrons became a
+  plain "/" separator. Functional icons that a control actually depends on
+  were kept: the hamburger/close toggle, the mega-menu dropdown chevron,
+  the FAQ/spec-sheet accordion plus/minus, the lightbox close button, and
+  the phone/mail icons inside the interactive contact-map panel. The icon
+  sprite (`assets/icons/sprite.svg` and its mirror in `js/partials.js`) was
+  trimmed down to just those six surviving icons.
+- **Footer ISO 9001/14001/22000 tags removed** per feedback — the footer
+  now ends with just the legal/registration line.
 
 ## Accessibility
 
@@ -276,8 +291,8 @@ metrics), the copy says so explicitly rather than inventing numbers — see
 
 - Homepage leads with one clear value proposition and a single H1, not a
   4-slide carousel with no coherent message
-- Real ISO/certification proof (badge image + JSON-LD) instead of
-  text-only claims, with a dedicated Quality & Certifications page
+- Real ISO/certification proof (JSON-LD structured data, not just
+  text-only claims) with a dedicated Quality & Certifications page
 - A genuine, attributed testimonial instead of no social proof at all
 - FAQ content, spec tables, and galleries on every product page — none
   existed on the live site

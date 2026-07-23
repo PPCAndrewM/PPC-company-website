@@ -43,9 +43,9 @@
     <div class="container">
       <nav class="breadcrumbs" aria-label="Breadcrumb">
         <a href="../index.html">Home</a>
-        <svg><use href="#icon-chevron-right"></use></svg>
+        <span class="crumb-sep" aria-hidden="true">/</span>
         <a href="industries.html">Industries</a>
-        <svg><use href="#icon-chevron-right"></use></svg>
+        <span class="crumb-sep" aria-hidden="true">/</span>
         <span aria-current="page">Chemical Manufacturing</span>
       </nav>
       <p class="eyebrow" style="color:var(--blue-100)">Industry</p>
@@ -67,9 +67,9 @@
           <h2 id="challenge-heading">Chemical cargo fails in three ways: reaction, contamination, containment.</h2>
           <p>Chemical shippers carry a different risk profile from food or agricultural bulk cargo &mdash; a packaging failure isn&rsquo;t just a commercial loss, it can be a safety and environmental incident. Our technical team works through the product's chemical compatibility, viscosity and any regulatory handling requirement before recommending a format.</p>
           <ul class="stack-md" style="margin-top:var(--sp-6)">
-            <li style="display:flex;gap:.7em"><svg class="icon" style="color:var(--success);flex-shrink:0;margin-top:.15em"><use href="#icon-check-circle"></use></svg><span><strong>Material compatibility</strong> &mdash; film and fabric options checked against the specific chemical before a format is recommended</span></li>
-            <li style="display:flex;gap:.7em"><svg class="icon" style="color:var(--success);flex-shrink:0;margin-top:.15em"><use href="#icon-check-circle"></use></svg><span><strong>Contamination control</strong> &mdash; single-use flexitanks and liners remove cross-batch contamination risk entirely</span></li>
-            <li style="display:flex;gap:.7em"><svg class="icon" style="color:var(--success);flex-shrink:0;margin-top:.15em"><use href="#icon-check-circle"></use></svg><span><strong>Containment assurance</strong> &mdash; every weld pressure-tested to 1 bar before dispatch, with a 24/7 emergency response service if something does go wrong in transit</span></li>
+            <li style="display:flex;gap:.7em"><span><strong>Material compatibility</strong> &mdash; film and fabric options checked against the specific chemical before a format is recommended</span></li>
+            <li style="display:flex;gap:.7em"><span><strong>Contamination control</strong> &mdash; single-use flexitanks and liners remove cross-batch contamination risk entirely</span></li>
+            <li style="display:flex;gap:.7em"><span><strong>Containment assurance</strong> &mdash; every weld pressure-tested to 1 bar before dispatch, with a 24/7 emergency response service if something does go wrong in transit</span></li>
           </ul>
         </div>
         <div class="ratio ratio-4-3">
@@ -92,7 +92,7 @@
           <div class="product-card-body">
             <h3>Flexitanks for Liquids</h3>
             <p>Non-hazardous bulk liquid chemicals, 5,000&ndash;50,000+ litres, with barrier-layer options for oxygen or odour-sensitive products.</p>
-            <span class="card-cta">View flexitanks <svg class="icon"><use href="#icon-arrow-right"></use></svg></span>
+            <span class="card-cta">View flexitanks</span>
           </div>
         </a>
         <a class="card product-card" href="product-dry-bulk-container-liners.html">
@@ -100,7 +100,7 @@
           <div class="product-card-body">
             <h3>Dry Bulk Container Liners</h3>
             <p>Powdered and granular chemical products, including fluidising liners for compactable materials like calcium carbonate.</p>
-            <span class="card-cta">View liners <svg class="icon"><use href="#icon-arrow-right"></use></svg></span>
+            <span class="card-cta">View liners</span>
           </div>
         </a>
         <a class="card product-card" href="product-containment-bags.html">
@@ -108,7 +108,7 @@
           <div class="product-card-body">
             <h3>Containment Bags</h3>
             <p>FIBC liners and containment cubicles for speciality and fine chemical handling, including sample-collection spout options.</p>
-            <span class="card-cta">View containment <svg class="icon"><use href="#icon-arrow-right"></use></svg></span>
+            <span class="card-cta">View containment</span>
           </div>
         </a>
       </div>
@@ -167,7 +167,6 @@
 <footer class="site-footer" id="site-footer" role="contentinfo"></footer>
 
 <button class="back-to-top" aria-label="Back to top">
-  <svg style="transform:rotate(-90deg)"><use href="#icon-arrow-right"></use></svg>
 </button>
 
 <script src="../js/partials.js"></script>
