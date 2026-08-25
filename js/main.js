@@ -232,8 +232,6 @@
       });
     });
     var heroSection = heroCarousel.closest(".hero") || heroCarousel;
-    heroSection.addEventListener("mouseenter", stopHeroTimer);
-    heroSection.addEventListener("mouseleave", startHeroTimer);
     heroSection.addEventListener("focusin", stopHeroTimer);
     heroSection.addEventListener("focusout", startHeroTimer);
     document.addEventListener("visibilitychange", function(){
