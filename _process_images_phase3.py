@@ -26,10 +26,9 @@ def save_jpg(src_rel, dst_rel, max_w, quality=82, crop_box=None):
 # ---- Homepage hero carousel (existing slide 1 is hero/hero-flexitank-rail.jpg,
 #      processed back in Phase 1) ----
 
-# Slide 2: already a well-framed landscape shot, no crop needed. Source is
-# only 1024x683 — kept at native resolution rather than upscaled, so it will
-# read slightly softer than the other slides on large/high-DPI screens.
-save_jpg(r"Dry bulk phtographs\bulksheets.jpg", r"hero\hero-bulksheets.jpg", 1024)
+# Slide 2: an inflated flexitank in open storage — well-framed landscape
+# shot, no crop needed. Source is 1632x1224 (native, no upscale).
+save_jpg(r"Flexitanks photographs\Ground Storage Tank.JPG", r"hero\hero-ground-storage-tank.jpg", 1632)
 
 # Slide 3: high-res, well framed already — just downsized to match the other slides.
 save_jpg(r"Dry bulk phtographs\Dry Bulk End fill liner 009.jpg", r"hero\hero-endfill-liner.jpg", 2200)
