@@ -116,6 +116,14 @@ main [id]{ scroll-margin-top: calc(var(--header-h) + 64px); }
   .grid-3 > *{ flex-basis: 100%; }
 }
 
+/* ---- Card grid: fixed at 2x2 for sections with exactly 4 cards ----
+   A clean, complete-looking grid for counts that don't divide evenly by
+   3 (4 items) rather than forcing a lone stranded card onto its own row. */
+.grid-4{ display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--sp-6); }
+@media (max-width: 560px){
+  .grid-4{ grid-template-columns: 1fr; }
+}
+
 /* ---- Buttons ---- */
 .btn{
   display: inline-flex; align-items: center; justify-content: center; gap: .55em;
