@@ -53,6 +53,10 @@
       '</a>' +
       '<nav class="primary-nav" aria-label="Primary">' +
 
+        '<div class="nav-item' + isActive('home') + '">' +
+          '<a class="nav-link" href="' + BASE + 'index.html">Home</a>' +
+        '</div>' +
+
         '<div class="nav-item' + isActive('products') + '">' +
           '<button class="nav-link" aria-expanded="false" aria-haspopup="true">Products ' + icon('chevron-down') + '</button>' +
           '<div class="mega" role="menu">' +
