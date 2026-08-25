@@ -64,7 +64,7 @@ h2{ font-size: clamp(1.9rem, 1.8vw + 1rem, 2.9rem); }
 h3{ font-size: clamp(1.35rem, .8vw + 1rem, 1.7rem); }
 h4{ font-size: 1.05rem; text-transform: uppercase; letter-spacing: .06em; font-weight: 600; }
 p{ margin: 0 0 1em; max-width: 68ch; }
-.lede{ font-size: 1.2rem; color: var(--ink-500); max-width: 58ch; }
+.lede{ font-size: 1.2rem; color: var(--ink-500); max-width: 58ch; margin-top: var(--sp-3); }
 strong{ font-weight: 600; color: var(--ink-900); }
 .mono{ font-family: var(--font-mono); }
 
@@ -73,10 +73,10 @@ strong{ font-weight: 600; color: var(--ink-900); }
 @media (max-width: 640px){ .container{ padding-inline: var(--sp-4); } }
 .container-narrow{ max-width: var(--container-narrow); margin-inline: auto; padding-inline: var(--sp-6); }
 
-.section{ padding-block: var(--sp-11); }
+.section{ padding-top: calc(var(--sp-11) / 2); padding-bottom: var(--sp-11); }
 .section-tight{ padding-block: var(--sp-9); }
 @media (max-width: 780px){
-  .section{ padding-block: var(--sp-9); }
+  .section{ padding-top: calc(var(--sp-9) / 2); padding-bottom: var(--sp-9); }
   .section-tight{ padding-block: var(--sp-7); }
 }
 .section--sunk{ background: var(--paper-sunk); }
