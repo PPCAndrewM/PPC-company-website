@@ -99,6 +99,7 @@ PPC-company-website/
 ├── _process_images.py                  One-off script: Phase 1 Media/ → assets/images/
 ├── _process_images_phase2.py           One-off script: Phase 2 additional assets
 ├── _process_images_phase3.py           One-off script: Phase 3, homepage hero carousel images
+├── _process_images_phase4.py           One-off script: Phase 4, flexitank CGI cards + real-photo galleries
 └── README.md                           This file
 ```
 
@@ -174,6 +175,8 @@ processed (resized + compressed for web) into `assets/images/`. Highlights:
 | ISO 9001 badge | `Media/SGS ISO9001 Logo/SGS ISO 9001 UKAS_TCL_HR.jpg` — genuine certificate; processed copy kept in `assets/images/certifications/` but no longer displayed on the page (removed as part of the sitewide icon/graphic clean-up, see "Fixes applied after first review") |
 | Manufacturing photos | `Media/About us photographs/*` (production line, testing platform, 1974 facility photo) |
 | Dry bulk liner sub-types (8) | `Media/Product CGIs/1-8*.png` |
+| Flexitank format cards (6) | `Media/Product CGIs/9.,10.,11.,12.,13.,14.*` — mirrors the dry bulk liner page's card format; `12. Trailer1 valve` was newly processed for the Trailer &amp; Reefer card |
+| Dry bulk / flexitank product-page galleries | Both galleries were swapped to real photographs only (no CGI renders) — dry bulk adds `Media/Dry bulk phtographs/DSC_2650 klein.jpg` and `dry-bulk-advert-2-pic-2.jpg`; flexitank adds `Media/Flexitanks photographs/flexi-1.jpg`, `flexi-2.jpg` and `recirculation-system.jpg` |
 | Containment &amp; industrial packaging galleries | `Media/Industrial packaging photographs/*`, `Media/Product CGIs/15-27*.png` |
 | Bladder tanks &amp; agriculture gallery | `Media/Bladder tanks and agriculture applications CGIs/*` |
 | Brochures (EN/CN/ES) | `Media/Brochures/*` |
@@ -181,9 +184,10 @@ processed (resized + compressed for web) into `assets/images/`. Highlights:
 | Contact page world map | `assets/images/map/world-map.svg` — not from `Media/`; this is Wikimedia Commons' "Simple world map.svg" (CC0/public domain, no attribution required), recoloured to match the site palette |
 
 Full mapping for every image is in `_process_images.py` (Phase 1),
-`_process_images_phase2.py` (Phase 2) and `_process_images_phase3.py`
-(Phase 3) — each line is one source → destination pair, so you can trace
-any image on the site back to its original file.
+`_process_images_phase2.py` (Phase 2), `_process_images_phase3.py`
+(Phase 3) and `_process_images_phase4.py` (Phase 4) — each line is one
+source → destination pair, so you can trace any image on the site back
+to its original file.
 
 **`Media/` was reorganised** from the original flat `reference letters/`
 folder into `Media/Testimonials/Letters/` (signed PDF/Word reference
