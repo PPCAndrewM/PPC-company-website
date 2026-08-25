@@ -100,6 +100,7 @@ PPC-company-website/
 ├── _process_images_phase2.py           One-off script: Phase 2 additional assets
 ├── _process_images_phase3.py           One-off script: Phase 3, homepage hero carousel images
 ├── _process_images_phase4.py           One-off script: Phase 4, flexitank CGI cards + real-photo galleries
+├── _process_images_phase5.py           One-off script: Phase 5, page-hero carousel rollout (one new image)
 └── README.md                           This file
 ```
 
@@ -182,12 +183,14 @@ processed (resized + compressed for web) into `assets/images/`. Highlights:
 | Brochures (EN/CN/ES) | `Media/Brochures/*` |
 | Testimonials (5, homepage) | `Media/Testimonials/Letters/*.pdf` (MUTO — Korea, Artlant PTA — Portugal, Kukla Spedition — Germany) and `Media/Testimonials/Marketing Graphics/*.png` (Keymac Packaging, Shetland Islands Council) — all real, named, quoted with attribution |
 | Contact page world map | `assets/images/map/world-map.svg` — not from `Media/`; this is Wikimedia Commons' "Simple world map.svg" (CC0/public domain, no attribution required), recoloured to match the site palette |
+| Page-hero carousels (all 20 interior pages) | Each page-hero banner is now a 4-image auto-advancing carousel (same mechanism as the homepage hero, just at the page-hero's existing shorter height). Almost every image is reused from a page's own Gallery section or another already-processed real photo elsewhere on the site — `Media/Industrial packaging photographs/industrial-cover-for-double-decker-buses.jpg` was the one genuinely new source photo (Industrial Packaging page). The Bladder Tanks & Agriculture page is a deliberate exception: no real photograph of that product exists anywhere in `Media/`, so its carousel uses its own CGI renders instead |
 
 Full mapping for every image is in `_process_images.py` (Phase 1),
 `_process_images_phase2.py` (Phase 2), `_process_images_phase3.py`
-(Phase 3) and `_process_images_phase4.py` (Phase 4) — each line is one
-source → destination pair, so you can trace any image on the site back
-to its original file.
+(Phase 3), `_process_images_phase4.py` (Phase 4) and
+`_process_images_phase5.py` (Phase 5) — each line is one source →
+destination pair, so you can trace any image on the site back to its
+original file.
 
 **`Media/` was reorganised** from the original flat `reference letters/`
 folder into `Media/Testimonials/Letters/` (signed PDF/Word reference

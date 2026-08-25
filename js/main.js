@@ -196,50 +196,53 @@
   }
 
   /* ------------------------------------------------------------------ */
-  /* Homepage hero carousel                                              */
+  /* Hero carousels — the homepage .hero and every .page-hero banner      */
+  /* share the same .hero-media/.hero-slide/.hero-dots markup, so one     */
+  /* init routine drives however many of them are on the page (in         */
+  /* practice, at most one per page).                                    */
   /* ------------------------------------------------------------------ */
-  var heroCarousel = document.getElementById("hero-carousel");
-  if (heroCarousel) {
-    var heroSlides = Array.prototype.slice.call(heroCarousel.querySelectorAll(".hero-slide"));
-    var heroDots = Array.prototype.slice.call(document.querySelectorAll(".hero-dot"));
-    var heroIndex = 0;
-    var heroTimer = null;
+  document.querySelectorAll(".hero-media").forEach(function(media){
+    var slides = Array.prototype.slice.call(media.querySelectorAll(".hero-slide"));
+    if (!slides.length) return;
+    var wrap = media.closest(".hero, .page-hero") || media.parentElement;
+    var dots = Array.prototype.slice.call(wrap.querySelectorAll(".hero-dot"));
+    var index = 0;
+    var timer = null;
 
-    function showHeroSlide(index){
-      heroIndex = (index + heroSlides.length) % heroSlides.length;
-      heroSlides.forEach(function(slide, i){
-        slide.classList.toggle("is-active", i === heroIndex);
-        slide.setAttribute("aria-hidden", String(i !== heroIndex));
+    function showSlide(i){
+      index = (i + slides.length) % slides.length;
+      slides.forEach(function(slide, n){
+        slide.classList.toggle("is-active", n === index);
+        slide.setAttribute("aria-hidden", String(n !== index));
       });
-      heroDots.forEach(function(dot, i){
-        dot.classList.toggle("is-active", i === heroIndex);
-        dot.setAttribute("aria-current", String(i === heroIndex));
+      dots.forEach(function(dot, n){
+        dot.classList.toggle("is-active", n === index);
+        dot.setAttribute("aria-current", String(n === index));
       });
     }
-    function startHeroTimer(){
-      if (prefersReducedMotion || heroSlides.length < 2) return;
-      stopHeroTimer();
-      heroTimer = window.setInterval(function(){ showHeroSlide(heroIndex + 1); }, 6000);
+    function startTimer(){
+      if (prefersReducedMotion || slides.length < 2) return;
+      stopTimer();
+      timer = window.setInterval(function(){ showSlide(index + 1); }, 6000);
     }
-    function stopHeroTimer(){
-      if (heroTimer) { window.clearInterval(heroTimer); heroTimer = null; }
+    function stopTimer(){
+      if (timer) { window.clearInterval(timer); timer = null; }
     }
 
-    heroDots.forEach(function(dot, i){
+    dots.forEach(function(dot, i){
       dot.addEventListener("click", function(){
-        showHeroSlide(i);
-        startHeroTimer();
+        showSlide(i);
+        startTimer();
       });
     });
-    var heroSection = heroCarousel.closest(".hero") || heroCarousel;
-    heroSection.addEventListener("focusin", stopHeroTimer);
-    heroSection.addEventListener("focusout", startHeroTimer);
+    wrap.addEventListener("focusin", stopTimer);
+    wrap.addEventListener("focusout", startTimer);
     document.addEventListener("visibilitychange", function(){
-      if (document.hidden) stopHeroTimer(); else startHeroTimer();
+      if (document.hidden) stopTimer(); else startTimer();
     });
 
-    startHeroTimer();
-  }
+    startTimer();
+  });
 
   /* ------------------------------------------------------------------ */
   /* Back to top                                                         */

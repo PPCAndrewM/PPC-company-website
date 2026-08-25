@@ -156,10 +156,15 @@ body.nav-open .icon-close{ display: block; }
 }
 .hero-stat span{ font-size: .82rem; color: var(--blue-100); letter-spacing: .02em; }
 
-/* Simpler page header (non-home pages) */
+/* Simpler page header (non-home pages) — background is either the flat
+   var(--blue-900) fallback or, on pages with a hero carousel, a
+   .hero-media photo stack (same markup/CSS as the homepage hero, just
+   shorter — .page-hero's height still comes purely from its own
+   padding + content, not from .hero-media). */
 .page-hero{
   background: var(--blue-900); color: #fff; padding-block: var(--sp-9) var(--sp-8); position: relative; overflow: hidden;
 }
+.page-hero > .container{ position: relative; z-index: 1; }
 .page-hero .breadcrumbs{ color: #fff; position: relative; }
 .page-hero .breadcrumbs a{ color: #fff; }
 .page-hero .breadcrumbs a:hover{ color: #fff; text-decoration: underline; }
