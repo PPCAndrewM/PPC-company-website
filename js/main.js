@@ -49,7 +49,7 @@
     var navItems = document.querySelectorAll(".nav-item");
     navItems.forEach(function(item){
       var trigger = item.querySelector(".nav-link");
-      if (!trigger) return;
+      if (!trigger || trigger.tagName !== "BUTTON") return;
       trigger.addEventListener("click", function(e){
         e.preventDefault();
         var willOpen = !item.classList.contains("is-open");
