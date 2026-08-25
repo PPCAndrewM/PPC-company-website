@@ -82,7 +82,7 @@ strong{ font-weight: 600; color: var(--ink-900); }
 .section--sunk{ background: var(--paper-sunk); }
 .section--dark{ background: var(--blue-900); color: #fff; }
 .section--dark h2, .section--dark h3, .section--dark h4{ color: #fff; }
-.section--dark .lede{ color: var(--blue-100); }
+.section--dark .lede{ color: #fff; }
 
 /* Anchor targets: keep headings clear of the sticky header + sub-nav */
 main [id]{ scroll-margin-top: calc(var(--header-h) + 64px); }
@@ -93,7 +93,7 @@ main [id]{ scroll-margin-top: calc(var(--header-h) + 64px); }
   letter-spacing: .12em; text-transform: uppercase; color: var(--blue-700);
   margin-bottom: var(--sp-3);
 }
-.section--dark .eyebrow{ color: var(--blue-200); }
+.section--dark .eyebrow{ color: #fff; }
 .eyebrow::before{ content:""; width: 18px; height: 2px; background: var(--orange-500); display: inline-block; }
 
 .section-head{ max-width: 62ch; margin-bottom: var(--sp-8); }
@@ -115,14 +115,14 @@ main [id]{ scroll-margin-top: calc(var(--header-h) + 64px); }
 .btn:active{ transform: translateY(1px); }
 .btn-primary{ background: var(--orange-500); color: #fff; }
 .btn-primary:hover{ background: var(--orange-600); }
-.btn-secondary{ background: transparent; color: var(--blue-900); border-color: var(--line-strong); }
+.btn-secondary{ background: transparent; color: var(--blue-700); border-color: var(--line-strong); }
 .btn-secondary:hover{ border-color: var(--blue-700); background: var(--blue-50); }
 .section--dark .btn-secondary{ color: #fff; border-color: rgba(255,255,255,.35); }
 .section--dark .btn-secondary:hover{ background: rgba(255,255,255,.08); border-color: #fff; }
 
-/* Hero, page-hero and CTA-band always sit on a dark photo/navy background,
-   even though none of them carries the .section--dark class, so they need
-   the same light-text treatment applied directly. */
+/* Hero, page-hero and CTA-band always sit on a dark photo/brand-blue
+   background, even though none of them carries the .section--dark class, so
+   they need the same light-text treatment applied directly. */
 .hero .btn-secondary, .page-hero .btn-secondary, .cta-band .btn-secondary{ color: #fff; border-color: rgba(255,255,255,.4); }
 .hero .btn-secondary:hover, .page-hero .btn-secondary:hover, .cta-band .btn-secondary:hover{ background: rgba(255,255,255,.12); border-color: #fff; }
 .btn-ghost{ background: transparent; color: var(--blue-700); padding-inline: .2em; }

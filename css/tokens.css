@@ -71,7 +71,7 @@
   --blue-600: #0483C2;
   --blue-700: #0A6699;
   --blue-800: #0F4A73;
-  --blue-900: #0B2E49;   /* deep navy — dark sections, footer */
+  --blue-900: #00A1E6;   /* rectangle fill for page-hero/CTA-band/back-to-top/.section--dark — same as --blue-500; white text on top, per design direction */
 
   /* ---- Accent orange scale (from live-site #F55118) ---- */
   --orange-50:  #FEF1EA;

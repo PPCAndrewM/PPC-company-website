@@ -144,11 +144,13 @@ body.nav-open .icon-close{ display: block; }
   content:""; position: absolute; inset: 0; opacity: .12; pointer-events: none;
   background: repeating-linear-gradient(115deg, transparent 0 46px, #fff 46px 47px);
 }
-.page-hero .breadcrumbs{ color: var(--blue-100); position: relative; }
-.page-hero .breadcrumbs a{ color: var(--blue-100); }
+.page-hero .breadcrumbs{ color: #fff; position: relative; }
+.page-hero .breadcrumbs a{ color: #fff; }
+.page-hero .breadcrumbs a:hover{ color: #fff; text-decoration: underline; }
+.page-hero .breadcrumbs .crumb-sep{ color: rgba(255,255,255,.7); }
 .page-hero .breadcrumbs [aria-current]{ color: #fff; }
 .page-hero h1{ color: #fff; max-width: 22ch; position: relative; }
-.page-hero .lede{ color: var(--blue-100); margin-top: var(--sp-3); position: relative; }
+.page-hero .lede{ color: #fff; margin-top: var(--sp-3); position: relative; }
 
 /* ---------------------------------------------------------------------- */
 /* CARDS                                                                   */
@@ -192,7 +194,7 @@ a.card:hover, .card.is-hoverable:hover{
 }
 .section--dark .stat-card b{ color: #fff; }
 .stat-card span{ display: block; margin-top: var(--sp-2); font-size: .86rem; color: var(--ink-500); }
-.section--dark .stat-card span{ color: var(--blue-100); }
+.section--dark .stat-card span{ color: #fff; }
 
 .resource-card{ display: flex; flex-direction: column; height: 100%; }
 .resource-card .tag{ margin-bottom: var(--sp-3); }
@@ -278,7 +280,7 @@ a.card:hover, .card.is-hoverable:hover{
   background: repeating-linear-gradient(115deg, transparent 0 46px, #fff 46px 47px);
 }
 .cta-band h2{ color: #fff; max-width: 18ch; position: relative; }
-.cta-band p{ color: var(--blue-100); position: relative; }
+.cta-band p{ color: #fff; position: relative; }
 .cta-band-actions{ display: flex; gap: var(--sp-4); flex-wrap: wrap; position: relative; }
 @media (max-width: 720px){ .cta-band{ padding: var(--sp-7) var(--sp-5); } }
 
