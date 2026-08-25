@@ -65,8 +65,17 @@
 
   <!-- ============ HERO ============ -->
   <section class="hero">
-    <div class="hero-media">
-      <img src="assets/images/hero/hero-flexitank-rail.jpg" alt="A PPC Philton flexitank loaded with liquid cargo inside a shipping container on a rail wagon, ready for bulk transport" width="2200" height="1651">
+    <div class="hero-media" id="hero-carousel">
+      <img class="hero-slide is-active" src="assets/images/hero/hero-flexitank-rail.jpg" alt="A PPC Philton flexitank loaded with liquid cargo inside a shipping container on a rail wagon, ready for bulk transport" width="2200" height="1651">
+      <img class="hero-slide" src="assets/images/hero/hero-bulksheets.jpg" alt="A dry bulk container liner being loaded with grain inside a shipping container" width="1024" height="683" aria-hidden="true">
+      <img class="hero-slide" src="assets/images/hero/hero-endfill-liner.jpg" alt="An end-fill dry bulk liner fitted inside an open shipping container, ready for loading" width="2200" height="1650" aria-hidden="true">
+      <img class="hero-slide" src="assets/images/hero/hero-flexitank-unloading.jpg" alt="A flexitank being unloaded from a shipping container into a road tanker via hose" width="1536" height="864" aria-hidden="true">
+    </div>
+    <div class="hero-dots" role="group" aria-label="Hero image">
+      <button type="button" class="hero-dot is-active" aria-label="Show image 1 of 4" aria-current="true"></button>
+      <button type="button" class="hero-dot" aria-label="Show image 2 of 4"></button>
+      <button type="button" class="hero-dot" aria-label="Show image 3 of 4"></button>
+      <button type="button" class="hero-dot" aria-label="Show image 4 of 4"></button>
     </div>
     <div class="container hero-content">
       <p class="eyebrow" style="color:var(--blue-100)">Manufacturing since 1969</p>

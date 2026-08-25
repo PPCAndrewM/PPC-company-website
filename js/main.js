@@ -196,6 +196,54 @@
   }
 
   /* ------------------------------------------------------------------ */
+  /* Homepage hero carousel                                              */
+  /* ------------------------------------------------------------------ */
+  var heroCarousel = document.getElementById("hero-carousel");
+  if (heroCarousel) {
+    var heroSlides = Array.prototype.slice.call(heroCarousel.querySelectorAll(".hero-slide"));
+    var heroDots = Array.prototype.slice.call(document.querySelectorAll(".hero-dot"));
+    var heroIndex = 0;
+    var heroTimer = null;
+
+    function showHeroSlide(index){
+      heroIndex = (index + heroSlides.length) % heroSlides.length;
+      heroSlides.forEach(function(slide, i){
+        slide.classList.toggle("is-active", i === heroIndex);
+        slide.setAttribute("aria-hidden", String(i !== heroIndex));
+      });
+      heroDots.forEach(function(dot, i){
+        dot.classList.toggle("is-active", i === heroIndex);
+        dot.setAttribute("aria-current", String(i === heroIndex));
+      });
+    }
+    function startHeroTimer(){
+      if (prefersReducedMotion || heroSlides.length < 2) return;
+      stopHeroTimer();
+      heroTimer = window.setInterval(function(){ showHeroSlide(heroIndex + 1); }, 6000);
+    }
+    function stopHeroTimer(){
+      if (heroTimer) { window.clearInterval(heroTimer); heroTimer = null; }
+    }
+
+    heroDots.forEach(function(dot, i){
+      dot.addEventListener("click", function(){
+        showHeroSlide(i);
+        startHeroTimer();
+      });
+    });
+    var heroSection = heroCarousel.closest(".hero") || heroCarousel;
+    heroSection.addEventListener("mouseenter", stopHeroTimer);
+    heroSection.addEventListener("mouseleave", startHeroTimer);
+    heroSection.addEventListener("focusin", stopHeroTimer);
+    heroSection.addEventListener("focusout", startHeroTimer);
+    document.addEventListener("visibilitychange", function(){
+      if (document.hidden) stopHeroTimer(); else startHeroTimer();
+    });
+
+    startHeroTimer();
+  }
+
+  /* ------------------------------------------------------------------ */
   /* Back to top                                                         */
   /* ------------------------------------------------------------------ */
   var backToTop = document.querySelector(".back-to-top");

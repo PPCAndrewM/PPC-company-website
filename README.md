@@ -98,6 +98,7 @@ PPC-company-website/
 │                                        (excluded from git — see .gitignore)
 ├── _process_images.py                  One-off script: Phase 1 Media/ → assets/images/
 ├── _process_images_phase2.py           One-off script: Phase 2 additional assets
+├── _process_images_phase3.py           One-off script: Phase 3, homepage hero carousel images
 └── README.md                           This file
 ```
 
@@ -169,7 +170,7 @@ processed (resized + compressed for web) into `assets/images/`. Highlights:
 |---|---|
 | Logo (header/footer) | `Media/PPC Logo/PPC-Philton-Large-Logo trans - clear background.png` — genuinely transparent PNG; replaced the original opaque-background version, which was the cause of a white box appearing behind the logo on the dark footer |
 | Favicon | `Media/PPC Logo/PPC logo.png` |
-| Hero image | `Media/Flexitanks photographs/Flexitank-rail-testing.jpg` |
+| Hero image carousel (4 slides) | `Media/Flexitanks photographs/Flexitank-rail-testing.jpg`, `Media/Dry bulk phtographs/bulksheets.jpg`, `Media/Dry bulk phtographs/Dry Bulk End fill liner 009.jpg`, `Media/Flexitanks photographs/Flexitank-unloading-trailer.jpg` (the last one cropped from portrait to a 16:9 landscape band — see `_process_images_phase3.py`); auto-advances every 6s, pauses on hover/focus and when the tab is hidden, and skips autoplay entirely under `prefers-reduced-motion` |
 | ISO 9001 badge | `Media/SGS ISO9001 Logo/SGS ISO 9001 UKAS_TCL_HR.jpg` — genuine certificate; processed copy kept in `assets/images/certifications/` but no longer displayed on the page (removed as part of the sitewide icon/graphic clean-up, see "Fixes applied after first review") |
 | Manufacturing photos | `Media/About us photographs/*` (production line, testing platform, 1974 facility photo) |
 | Dry bulk liner sub-types (8) | `Media/Product CGIs/1-8*.png` |
@@ -179,9 +180,10 @@ processed (resized + compressed for web) into `assets/images/`. Highlights:
 | Testimonials (5, homepage) | `Media/Testimonials/Letters/*.pdf` (MUTO — Korea, Artlant PTA — Portugal, Kukla Spedition — Germany) and `Media/Testimonials/Marketing Graphics/*.png` (Keymac Packaging, Shetland Islands Council) — all real, named, quoted with attribution |
 | Contact page world map | `assets/images/map/world-map.svg` — not from `Media/`; this is Wikimedia Commons' "Simple world map.svg" (CC0/public domain, no attribution required), recoloured to match the site palette |
 
-Full mapping for every image is in `_process_images.py` (Phase 1) and
-`_process_images_phase2.py` (Phase 2) — each line is one source → destination
-pair, so you can trace any image on the site back to its original file.
+Full mapping for every image is in `_process_images.py` (Phase 1),
+`_process_images_phase2.py` (Phase 2) and `_process_images_phase3.py`
+(Phase 3) — each line is one source → destination pair, so you can trace
+any image on the site back to its original file.
 
 **`Media/` was reorganised** from the original flat `reference letters/`
 folder into `Media/Testimonials/Letters/` (signed PDF/Word reference
