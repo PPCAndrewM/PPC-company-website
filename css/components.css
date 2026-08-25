@@ -230,16 +230,6 @@ a.card:hover, .card.is-hoverable:hover{
   .download-card .btn{ margin-left: 0; width: 100%; }
 }
 
-/* ---------------------------------------------------------------------- */
-/* CERTIFICATIONS / TRUST STRIP                                           */
-/* ---------------------------------------------------------------------- */
-.trust-strip{
-  display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-7);
-  padding-block: var(--sp-6); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
-}
-.trust-item{ display: flex; align-items: center; gap: .6em; color: var(--ink-500); font-size: .88rem; }
-.trust-item strong{ color: var(--ink-900); display: block; font-size: .95rem; }
-
 .cert-card{
   display: flex; align-items: center; gap: var(--sp-5); padding: var(--sp-5);
   background: var(--paper-raised); border: 1px solid var(--line); border-radius: var(--radius-md);
