@@ -102,6 +102,20 @@ main [id]{ scroll-margin-top: calc(var(--header-h) + 64px); }
 .grid{ display: grid; gap: var(--sp-6); }
 .flow > * + *{ margin-top: var(--sp-4); }
 
+/* ---- Card grid: fixed at 3 per row, incomplete last row centred ----
+   Flexbox (not CSS Grid) is what lets the last row of 1-2 cards centre
+   itself instead of sitting flush left. Each item's flex-basis is exactly
+   1/3 of the row (minus its share of the gap), so 3 always fit per line;
+   justify-content: center takes over once the last line has fewer than 3. */
+.grid-3{ display: flex; flex-wrap: wrap; justify-content: center; gap: var(--sp-6); }
+.grid-3 > *{ flex: 0 1 calc(33.333% - var(--sp-6) * 2 / 3); }
+@media (max-width: 900px){
+  .grid-3 > *{ flex-basis: calc(50% - var(--sp-6) / 2); }
+}
+@media (max-width: 560px){
+  .grid-3 > *{ flex-basis: 100%; }
+}
+
 /* ---- Buttons ---- */
 .btn{
   display: inline-flex; align-items: center; justify-content: center; gap: .55em;
