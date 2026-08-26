@@ -111,6 +111,7 @@ PPC-company-website/
 ├── _process_images_phase7.py           One-off script: Phase 7, Flexitanks "Trailer & Reefer" card CGI swap
 ├── _process_images_phase8.py           One-off script: Phase 8, homepage carousel image swap
 ├── _process_images_phase9.py           One-off script: Phase 9, new Services section images
+├── _process_images_phase10.py          One-off script: Phase 10, About page heritage photos
 └── README.md                           This file
 ```
 
