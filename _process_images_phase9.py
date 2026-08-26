@@ -45,7 +45,7 @@ save_jpg(r"Installations photographs\flexitank-installation-2.jpg",
          r"services\installation-bulkhead.jpg", 1600)
 save_jpg(r"Installations photographs\installation-of-liner.jpg",
          r"services\installation-liner-fit.jpg", 1600)
-save_jpg(r"Installations photographs\PHOTO-2020-01-23-14-39-10-16-002.jpg",
+save_jpg(r"Installations photographs\laying-down-liner.JPEG",
          r"services\installation-liner-unfold.jpg", 1600)
 
 # ---- Dry Bulk Emergency Response ----
