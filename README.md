@@ -2,7 +2,7 @@
 
 A from-scratch redesign mock-up of ppcphilton.com, built to run entirely locally
 with no build step and no server. **Phase 1 and Phase 2 are both complete** —
-all 20 pages in the planned sitemap are built and cross-linked. See
+all 25 pages in the planned sitemap are built and cross-linked. See
 [Status](#status) below for what that covers and what's intentionally left
 for a future pass.
 
@@ -16,7 +16,7 @@ network requests in some browsers.
 
 ## Status
 
-All 20 pages are built, cross-linked and validated (every `src`/`href`
+All 25 pages are built, cross-linked and validated (every `src`/`href`
 resolves, no broken internal links, balanced HTML tags, valid JS):
 
 **Home** — `index.html`
@@ -24,6 +24,11 @@ resolves, no broken internal links, balanced HTML tags, valid JS):
 **Products** — `pages/products.html` (hub) plus all five product pages:
 dry bulk container liners, flexitanks, containment bags, industrial
 packaging, bladder tanks & agriculture
+
+**Services** — `pages/services.html` (hub) plus all four service pages:
+Flexitank inspection, emergency cross-pumping, installation services,
+dry bulk emergency response — content and imagery based on the
+equivalent pages on the live ppcphilton.com site
 
 **Industries** — `pages/industries.html` (hub) plus all five industry
 pages: chemical manufacturing, food & beverage, logistics & freight,
@@ -68,6 +73,11 @@ PPC-company-website/
 │   ├── product-containment-bags.html
 │   ├── product-industrial-packaging.html
 │   ├── product-bladder-tanks.html
+│   ├── services.html                   Services hub
+│   ├── service-flexitank-inspection.html
+│   ├── service-emergency-cross-pumping.html
+│   ├── service-installation-services.html
+│   ├── service-dry-bulk-emergency-response.html
 │   ├── industries.html                 Industries hub
 │   ├── industry-chemical.html
 │   ├── industry-food-beverage.html
@@ -101,6 +111,7 @@ PPC-company-website/
 ├── _process_images_phase6.py           One-off script: Phase 6, homepage carousel image swap
 ├── _process_images_phase7.py           One-off script: Phase 7, Flexitanks "Trailer & Reefer" card CGI swap
 ├── _process_images_phase8.py           One-off script: Phase 8, homepage carousel image swap
+├── _process_images_phase9.py           One-off script: Phase 9, new Services section images
 └── README.md                           This file
 ```
 
@@ -132,7 +143,7 @@ same-origin policy under `file://` — there's no server to grant an origin,
 so the request silently fails in Chrome/Edge. `js/partials.js` solves this
 by injecting the header/footer markup from an inline script instead of
 fetching it, which works identically under `file://` and `http(s)://`.
-Every one of the 21 pages sets `data-base` (`""` at root, `"../"` inside
+Every one of the 25 pages sets `data-base` (`""` at root, `"../"` inside
 `/pages/`) and `data-page` (for nav active-state highlighting) on `<body>` —
 `partials.js` reads both to build correct relative links and highlight the
 right nav item automatically. The trade-off: header/nav/footer won't appear
@@ -285,13 +296,14 @@ metrics), the copy says so explicitly rather than inventing numbers — see
 
 ## SEO
 
-- Unique, keyword-relevant `<title>` and meta description on all 20 pages
+- Unique, keyword-relevant `<title>` and meta description on all 25 pages
 - Open Graph + Twitter Card tags on every page
 - Real JSON-LD throughout: `Organization`/`WebSite` on the homepage,
   `Product` + `FAQPage` + `BreadcrumbList` on every product page,
-  `BreadcrumbList` on every industry/company/news/FAQ page, `AboutPage`
-  on the About page — this directly fixes the "no Product schema
-  anywhere" finding from the site audit
+  `Service` + `BreadcrumbList` on every service page, `BreadcrumbList`
+  on every industry/company/news/FAQ page, `AboutPage` on the About
+  page — this directly fixes the "no Product schema anywhere" finding
+  from the site audit
 - One `<h1>` per page, ordered H2/H3 hierarchy throughout
 - Dense internal linking: products ↔ industries ↔ related products ↔
   FAQs ↔ news
@@ -318,7 +330,7 @@ metrics), the copy says so explicitly rather than inventing numbers — see
 
 ## Next steps
 
-1. **Review all 21 pages** and flag anything that reads wrong before this
+1. **Review all 25 pages** and flag anything that reads wrong before this
    goes further — copy, imagery choices, or structure.
 2. **Decide on a real backend** for the contact/enquiry forms — currently
    client-side only with no submission destination.

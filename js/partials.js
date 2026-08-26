@@ -69,6 +69,17 @@
           '</div>' +
         '</div>' +
 
+        '<div class="nav-item' + isActive('services') + '">' +
+          '<button class="nav-link" aria-expanded="false" aria-haspopup="true">Services ' + icon('chevron-down') + '</button>' +
+          '<div class="mega" role="menu">' +
+            '<a class="mega-link" href="' + p + 'service-flexitank-inspection.html" role="menuitem"><span><strong>Flexitank Inspection</strong><span>Root-cause analysis for leaks &amp; damage</span></span></a>' +
+            '<a class="mega-link" href="' + p + 'service-emergency-cross-pumping.html" role="menuitem"><span><strong>Emergency Cross-pumping</strong><span>Safe product transfer from a damaged Flexitank</span></span></a>' +
+            '<a class="mega-link" href="' + p + 'service-installation-services.html" role="menuitem"><span><strong>Installation Services</strong><span>On-site fitting, training &amp; delivery</span></span></a>' +
+            '<a class="mega-link" href="' + p + 'service-dry-bulk-emergency-response.html" role="menuitem"><span><strong>Dry Bulk Emergency Response</strong><span>Repacking &amp; replacement packaging</span></span></a>' +
+            '<div class="mega-foot"><a class="btn-ghost" href="' + p + 'services.html">View all services</a></div>' +
+          '</div>' +
+        '</div>' +
+
         '<div class="nav-item' + isActive('industries') + '">' +
           '<button class="nav-link" aria-expanded="false" aria-haspopup="true">Industries ' + icon('chevron-down') + '</button>' +
           '<div class="mega" role="menu">' +
@@ -119,6 +130,13 @@
       '<a class="mnav-sub" href="' + p + 'product-bladder-tanks.html">Bladder Tanks &amp; Agriculture</a>' +
     '</div>' +
     '<div class="mnav-group">' +
+      '<p class="mnav-title">Services</p>' +
+      '<a class="mnav-sub" href="' + p + 'service-flexitank-inspection.html">Flexitank Inspection</a>' +
+      '<a class="mnav-sub" href="' + p + 'service-emergency-cross-pumping.html">Emergency Cross-pumping</a>' +
+      '<a class="mnav-sub" href="' + p + 'service-installation-services.html">Installation Services</a>' +
+      '<a class="mnav-sub" href="' + p + 'service-dry-bulk-emergency-response.html">Dry Bulk Emergency Response</a>' +
+    '</div>' +
+    '<div class="mnav-group">' +
       '<p class="mnav-title">Industries</p>' +
       '<a class="mnav-sub" href="' + p + 'industry-chemical.html">Chemical Manufacturing</a>' +
       '<a class="mnav-sub" href="' + p + 'industry-food-beverage.html">Food &amp; Beverage</a>' +
@@ -162,6 +180,12 @@
         '<a href="' + p + 'product-containment-bags.html">Containment Bags</a>' +
         '<a href="' + p + 'product-industrial-packaging.html">Industrial Packaging</a>' +
         '<a href="' + p + 'product-bladder-tanks.html">Bladder Tanks &amp; Agriculture</a>' +
+      '</div>' +
+      '<div class="footer-col"><h3>Services</h3>' +
+        '<a href="' + p + 'service-flexitank-inspection.html">Flexitank Inspection</a>' +
+        '<a href="' + p + 'service-emergency-cross-pumping.html">Emergency Cross-pumping</a>' +
+        '<a href="' + p + 'service-installation-services.html">Installation Services</a>' +
+        '<a href="' + p + 'service-dry-bulk-emergency-response.html">Dry Bulk Emergency Response</a>' +
       '</div>' +
       '<div class="footer-col"><h3>Industries</h3>' +
         '<a href="' + p + 'industry-chemical.html">Chemical Manufacturing</a>' +
