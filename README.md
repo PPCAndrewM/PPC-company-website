@@ -90,8 +90,7 @@ PPC-company-website/
 │   └── main.js                         Nav, scroll-reveal, accordion, lightbox, back-to-top, forms
 ├── assets/
 │   ├── images/                         Processed, web-sized images (see Asset provenance)
-│   ├── icons/sprite.svg                Human-readable source of the icon set
-│   └── downloads/                      Brochure PDFs (EN/CN/ES)
+│   └── icons/sprite.svg                Human-readable source of the icon set
 ├── Media/                              Your original supplied assets — untouched, kept as source
 │                                        (excluded from git — see .gitignore)
 ├── _process_images.py                  One-off script: Phase 1 Media/ → assets/images/
@@ -316,8 +315,6 @@ metrics), the copy says so explicitly rather than inventing numbers — see
   the audit's top structural recommendation
 - A genuine FAQ page and per-product FAQ sections, previously absent
   sitewide
-- Orphaned assets fixed: brochures are now linked from the products that
-  describe them, request routed via the Contact page
 
 ## Next steps
 
