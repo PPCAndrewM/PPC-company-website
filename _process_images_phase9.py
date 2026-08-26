@@ -29,6 +29,10 @@ save_jpg(r"Flexitank inspection\Inflation testing - Cr.jpg",
          r"services\flexitank-inspection-inflation-test.jpg", 1600)
 save_jpg(r"Flexitank inspection\Inspection-02 - Cr.png",
          r"services\flexitank-inspection-workers.jpg", 1600)
+# Replaces the inflation-test slide as the service page's lead hero image --
+# shows a technician cutting open a leaking Flexitank to inspect the damage.
+save_jpg(r"Flexitank inspection\cutting-leaking-flexi.jpg",
+         r"services\flexitank-inspection-cutting-open.jpg", 1600)
 
 # ---- Emergency Cross-pumping ----
 save_jpg(r"Emergency cross-pumping\Cross-pumping - Cr.jpg",
