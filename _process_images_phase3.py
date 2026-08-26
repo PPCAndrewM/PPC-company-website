@@ -28,7 +28,10 @@ def save_jpg(src_rel, dst_rel, max_w, quality=82, crop_box=None):
 
 # Slide 2: an inflated flexitank in open storage — well-framed landscape
 # shot, no crop needed. Source is 1632x1224 (native, no upscale).
-save_jpg(r"Flexitanks photographs\Ground Storage Tank.JPG", r"hero\hero-ground-storage-tank.jpg", 1632)
+# SUPERSEDED (see phase6): output file deleted and every reference swapped
+# to hero-ground-storage-tank-blue-curtain.jpg -- kept here only as a
+# provenance record, do not re-run this line.
+# save_jpg(r"Flexitanks photographs\Ground Storage Tank.JPG", r"hero\hero-ground-storage-tank.jpg", 1632)
 
 # Slide 3: high-res, well framed already — just downsized to match the other slides.
 save_jpg(r"Dry bulk phtographs\Dry Bulk End fill liner 009.jpg", r"hero\hero-endfill-liner.jpg", 2200)
