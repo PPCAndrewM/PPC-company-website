@@ -2,7 +2,7 @@
 
 A from-scratch redesign mock-up of ppcphilton.com, built to run entirely locally
 with no build step and no server. **Phase 1 and Phase 2 are both complete** —
-all 21 pages in the planned sitemap are built and cross-linked. See
+all 20 pages in the planned sitemap are built and cross-linked. See
 [Status](#status) below for what that covers and what's intentionally left
 for a future pass.
 
@@ -16,7 +16,7 @@ network requests in some browsers.
 
 ## Status
 
-All 21 pages are built, cross-linked and validated (every `src`/`href`
+All 20 pages are built, cross-linked and validated (every `src`/`href`
 resolves, no broken internal links, balanced HTML tags, valid JS):
 
 **Home** — `index.html`
@@ -29,9 +29,8 @@ packaging, bladder tanks & agriculture
 pages: chemical manufacturing, food & beverage, logistics & freight,
 agriculture & commodities, pharmaceutical & healthcare
 
-**Company** — about, manufacturing, quality & certifications, sustainability
-
-**Resources** — resources/downloads, FAQs, knowledge centre / news
+**Company** — about, manufacturing, quality & certifications, sustainability,
+news / knowledge centre, FAQs
 
 **Contact** — full enquiry form + regional contact directory
 
@@ -79,9 +78,8 @@ PPC-company-website/
 │   ├── manufacturing.html
 │   ├── quality-certifications.html
 │   ├── sustainability.html
-│   ├── resources.html                  Downloads hub
 │   ├── faqs.html
-│   ├── news.html                       Knowledge centre
+│   ├── news.html                       Knowledge centre / News
 │   └── contact.html
 ├── css/
 │   ├── tokens.css                      Colour, type, spacing variables + embedded fonts
@@ -101,6 +99,9 @@ PPC-company-website/
 ├── _process_images_phase3.py           One-off script: Phase 3, homepage hero carousel images
 ├── _process_images_phase4.py           One-off script: Phase 4, flexitank CGI cards + real-photo galleries
 ├── _process_images_phase5.py           One-off script: Phase 5, page-hero carousel rollout (one new image)
+├── _process_images_phase6.py           One-off script: Phase 6, homepage carousel image swap
+├── _process_images_phase7.py           One-off script: Phase 7, Flexitanks "Trailer & Reefer" card CGI swap
+├── _process_images_phase8.py           One-off script: Phase 8, homepage carousel image swap
 └── README.md                           This file
 ```
 
@@ -285,16 +286,16 @@ metrics), the copy says so explicitly rather than inventing numbers — see
 
 ## SEO
 
-- Unique, keyword-relevant `<title>` and meta description on all 21 pages
+- Unique, keyword-relevant `<title>` and meta description on all 20 pages
 - Open Graph + Twitter Card tags on every page
 - Real JSON-LD throughout: `Organization`/`WebSite` on the homepage,
   `Product` + `FAQPage` + `BreadcrumbList` on every product page,
-  `BreadcrumbList` on every industry/company/resource page, `AboutPage`
+  `BreadcrumbList` on every industry/company/news/FAQ page, `AboutPage`
   on the About page — this directly fixes the "no Product schema
   anywhere" finding from the site audit
 - One `<h1>` per page, ordered H2/H3 hierarchy throughout
 - Dense internal linking: products ↔ industries ↔ related products ↔
-  FAQs ↔ resources
+  FAQs ↔ news
 
 ## What this fixes from the site audit
 
@@ -316,7 +317,7 @@ metrics), the copy says so explicitly rather than inventing numbers — see
 - A genuine FAQ page and per-product FAQ sections, previously absent
   sitewide
 - Orphaned assets fixed: brochures are now linked from the products that
-  describe them and from a dedicated Resources page
+  describe them, request routed via the Contact page
 
 ## Next steps
 

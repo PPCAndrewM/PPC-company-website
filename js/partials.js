@@ -88,15 +88,8 @@
             '<a class="mega-link" href="' + p + 'manufacturing.html" role="menuitem"><span><strong>Manufacturing</strong><span>UK, China &amp; India production facilities</span></span></a>' +
             '<a class="mega-link" href="' + p + 'quality-certifications.html" role="menuitem"><span><strong>Quality &amp; Certifications</strong><span>ISO 9001, 14001, 22000, PAS1008:2016</span></span></a>' +
             '<a class="mega-link" href="' + p + 'sustainability.html" role="menuitem"><span><strong>Sustainability</strong><span>Recyclable materials &amp; responsible manufacturing</span></span></a>' +
-          '</div>' +
-        '</div>' +
-
-        '<div class="nav-item' + isActive('resources') + '">' +
-          '<button class="nav-link" aria-expanded="false" aria-haspopup="true">Resources ' + icon('chevron-down') + '</button>' +
-          '<div class="mega" role="menu">' +
-            '<a class="mega-link" href="' + p + 'news.html" role="menuitem"><span><strong>Knowledge Centre</strong><span>Technical guides &amp; company news</span></span></a>' +
+            '<a class="mega-link" href="' + p + 'news.html" role="menuitem"><span><strong>News</strong><span>Technical guides &amp; company news</span></span></a>' +
             '<a class="mega-link" href="' + p + 'faqs.html" role="menuitem"><span><strong>FAQs</strong><span>Answers to common technical questions</span></span></a>' +
-            '<a class="mega-link" href="' + p + 'resources.html" role="menuitem"><span><strong>Downloads</strong><span>Brochures &amp; spec sheets</span></span></a>' +
           '</div>' +
         '</div>' +
 
@@ -139,12 +132,8 @@
       '<a class="mnav-sub" href="' + p + 'manufacturing.html">Manufacturing</a>' +
       '<a class="mnav-sub" href="' + p + 'quality-certifications.html">Quality &amp; Certifications</a>' +
       '<a class="mnav-sub" href="' + p + 'sustainability.html">Sustainability</a>' +
-    '</div>' +
-    '<div class="mnav-group">' +
-      '<p class="mnav-title">Resources</p>' +
-      '<a class="mnav-sub" href="' + p + 'news.html">Knowledge Centre</a>' +
+      '<a class="mnav-sub" href="' + p + 'news.html">News</a>' +
       '<a class="mnav-sub" href="' + p + 'faqs.html">FAQs</a>' +
-      '<a class="mnav-sub" href="' + p + 'resources.html">Downloads</a>' +
     '</div>' +
     '<div class="mnav-group">' +
       '<a class="btn btn-primary btn-block" href="' + p + 'contact.html">Get a quote</a>' +
@@ -186,12 +175,11 @@
         '<a href="' + p + 'manufacturing.html">Manufacturing</a>' +
         '<a href="' + p + 'quality-certifications.html">Quality &amp; Certifications</a>' +
         '<a href="' + p + 'sustainability.html">Sustainability</a>' +
-        '<a href="' + p + 'news.html">Knowledge Centre</a>' +
+        '<a href="' + p + 'news.html">News</a>' +
+        '<a href="' + p + 'faqs.html">FAQs</a>' +
       '</div>' +
       '<div class="footer-col"><h3>Get in touch</h3>' +
         '<a href="' + p + 'contact.html">Contact &amp; quote request</a>' +
-        '<a href="' + p + 'faqs.html">FAQs</a>' +
-        '<a href="' + p + 'resources.html">Brochures &amp; downloads</a>' +
         '<a href="tel:+441268696331">+44 (0)1268 696 331</a>' +
         '<a href="mailto:enquiries@ppcphilton.com">enquiries@ppcphilton.com</a>' +
       '</div>' +
