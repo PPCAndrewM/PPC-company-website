@@ -2,7 +2,7 @@
 
 A from-scratch redesign mock-up of ppcphilton.com, built to run entirely locally
 with no build step and no server. **Phase 1 and Phase 2 are both complete** —
-all 25 pages in the planned sitemap are built and cross-linked. See
+all 24 pages in the planned sitemap are built and cross-linked. See
 [Status](#status) below for what that covers and what's intentionally left
 for a future pass.
 
@@ -16,7 +16,7 @@ network requests in some browsers.
 
 ## Status
 
-All 25 pages are built, cross-linked and validated (every `src`/`href`
+All 24 pages are built, cross-linked and validated (every `src`/`href`
 resolves, no broken internal links, balanced HTML tags, valid JS):
 
 **Home** — `index.html`
@@ -34,7 +34,7 @@ equivalent pages on the live ppcphilton.com site
 pages: chemical manufacturing, food & beverage, logistics & freight,
 agriculture & commodities, pharmaceutical & healthcare
 
-**Company** — about, manufacturing, quality & certifications, sustainability,
+**Company** — about, quality & certifications, sustainability,
 news / knowledge centre, FAQs
 
 **Contact** — full enquiry form + regional contact directory
@@ -85,7 +85,6 @@ PPC-company-website/
 │   ├── industry-agriculture.html
 │   ├── industry-pharmaceutical.html
 │   ├── about.html
-│   ├── manufacturing.html
 │   ├── quality-certifications.html
 │   ├── sustainability.html
 │   ├── faqs.html
@@ -143,7 +142,7 @@ same-origin policy under `file://` — there's no server to grant an origin,
 so the request silently fails in Chrome/Edge. `js/partials.js` solves this
 by injecting the header/footer markup from an inline script instead of
 fetching it, which works identically under `file://` and `http(s)://`.
-Every one of the 25 pages sets `data-base` (`""` at root, `"../"` inside
+Every one of the 24 pages sets `data-base` (`""` at root, `"../"` inside
 `/pages/`) and `data-page` (for nav active-state highlighting) on `<body>` —
 `partials.js` reads both to build correct relative links and highlight the
 right nav item automatically. The trade-off: header/nav/footer won't appear
@@ -296,7 +295,7 @@ metrics), the copy says so explicitly rather than inventing numbers — see
 
 ## SEO
 
-- Unique, keyword-relevant `<title>` and meta description on all 25 pages
+- Unique, keyword-relevant `<title>` and meta description on all 24 pages
 - Open Graph + Twitter Card tags on every page
 - Real JSON-LD throughout: `Organization`/`WebSite` on the homepage,
   `Product` + `FAQPage` + `BreadcrumbList` on every product page,
@@ -330,7 +329,7 @@ metrics), the copy says so explicitly rather than inventing numbers — see
 
 ## Next steps
 
-1. **Review all 25 pages** and flag anything that reads wrong before this
+1. **Review all 24 pages** and flag anything that reads wrong before this
    goes further — copy, imagery choices, or structure.
 2. **Decide on a real backend** for the contact/enquiry forms — currently
    client-side only with no submission destination.

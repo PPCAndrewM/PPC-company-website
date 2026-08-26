@@ -96,7 +96,6 @@
           '<button class="nav-link" aria-expanded="false" aria-haspopup="true">Company ' + icon('chevron-down') + '</button>' +
           '<div class="mega" role="menu">' +
             '<a class="mega-link" href="' + p + 'about.html" role="menuitem"><span><strong>About Us</strong><span>57 years of manufacturing, 1969&ndash;2026</span></span></a>' +
-            '<a class="mega-link" href="' + p + 'manufacturing.html" role="menuitem"><span><strong>Manufacturing</strong><span>UK, China &amp; India production facilities</span></span></a>' +
             '<a class="mega-link" href="' + p + 'quality-certifications.html" role="menuitem"><span><strong>Quality &amp; Certifications</strong><span>ISO 9001, 14001, 22000, PAS1008:2016</span></span></a>' +
             '<a class="mega-link" href="' + p + 'sustainability.html" role="menuitem"><span><strong>Sustainability</strong><span>Recyclable materials &amp; responsible manufacturing</span></span></a>' +
             '<a class="mega-link" href="' + p + 'news.html" role="menuitem"><span><strong>News</strong><span>Technical guides &amp; company news</span></span></a>' +
@@ -147,7 +146,6 @@
     '<div class="mnav-group">' +
       '<p class="mnav-title">Company</p>' +
       '<a class="mnav-sub" href="' + p + 'about.html">About Us</a>' +
-      '<a class="mnav-sub" href="' + p + 'manufacturing.html">Manufacturing</a>' +
       '<a class="mnav-sub" href="' + p + 'quality-certifications.html">Quality &amp; Certifications</a>' +
       '<a class="mnav-sub" href="' + p + 'sustainability.html">Sustainability</a>' +
       '<a class="mnav-sub" href="' + p + 'news.html">News</a>' +
@@ -196,7 +194,6 @@
       '</div>' +
       '<div class="footer-col"><h3>Company</h3>' +
         '<a href="' + p + 'about.html">About Us</a>' +
-        '<a href="' + p + 'manufacturing.html">Manufacturing</a>' +
         '<a href="' + p + 'quality-certifications.html">Quality &amp; Certifications</a>' +
         '<a href="' + p + 'sustainability.html">Sustainability</a>' +
         '<a href="' + p + 'news.html">News</a>' +
